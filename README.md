@@ -1,18 +1,18 @@
 # Atcoder
 
-Atcoder の私用のライブラリ、また私の解答・復習を push するリポジトリです。
-使用言語は Python3 です。
+Atcoderの私用のライブラリ、また私の解答・復習をpushするリポジトリです。
+使用言語はPython3です。
 (ライブラリ、基本ググって奇麗に整形して持ってきますが、間違い等あればツイッターでお知らせください・・・)
 
 # 自分の解答状態
 
-- 非常に便利なサイトです。自分の Rank がわかりますね。目指せ challenger [https://kenkoooo.com/atcoder/](https://kenkoooo.com/atcoder/)
+- 非常に便利なサイトです。自分のRankがわかりますね。目指せchallenger [https://kenkoooo.com/atcoder/](https://kenkoooo.com/atcoder/)
 
 # ライブラリ
 
-# union Find
+# Union Find
 
-**コピ pe**
+**コピpe**
 
 ```py
 class UnionFind():
