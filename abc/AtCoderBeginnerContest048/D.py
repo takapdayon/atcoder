@@ -1,17 +1,12 @@
 def anordinarygame(s):
 
-    flag = True
-    count = 0
-    while flag:
-        for i in range(len(s)):
-            if len(s) != i and i != 0 and str(s[i-1]) != str(s[i+1]):
-                count += 1
-                s.pop(i)
-                continue
-            elif len(s) == i:
-                return "Second" if count % 2 == 0 else "First"
-        if len(s) < 3:
-            return "Second" if count % 2 == 0 else "First"
+    ans = ""
+    if s[0] == s[-1]:
+        ans = "Second" if len(s) % 2 else "First"
+    else:
+        ans = "First" if len(s) % 2 else "Second"
+
+    return ans
 
 def main():
     s = list(str(input()))
