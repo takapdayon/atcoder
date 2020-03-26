@@ -1,7 +1,7 @@
 # Atcoder
 
 Atcoderの私用のライブラリ、また私の解答・復習をpushするリポジトリです。
-使用言語はPython3です。
+使用言語はPython3です。<br>
 (ライブラリ、基本ググって奇麗に整形して持ってきますが、間違い等あればツイッターでお知らせください・・・)
 
 # 自分の解答状態
@@ -9,6 +9,43 @@ Atcoderの私用のライブラリ、また私の解答・復習をpushするリ
 - 非常に便利なサイトです。自分のRankがわかりますね。目指せchallenger [https://kenkoooo.com/atcoder/](https://kenkoooo.com/atcoder/)
 
 # ライブラリ
+
+
+# 英文字26loop
+
+```py
+for i in range(ord('a'), ord('z') + 1):
+    print(chr(i))
+
+```
+
+# 累積和
+**特定の範囲の合計値を高速に計算できる**
+
+```py
+n = list(int(input()))
+nli = [0]*(n + 1)
+
+for i in range(1 , n):
+    nli[i + 1] = nli[i] + a[i]
+    print(nli[i + 1])
+```
+
+**numpy使える場合
+```py
+import numpy as np
+n = list(int(input()))
+
+nli = np.cumsum(n)
+print(nli)
+```
+
+
+# 2次元累積和
+**そのうち**
+```py
+
+```
 
 # Union Find
 
@@ -64,3 +101,4 @@ class UnionFind():
 
 
 ```
+
