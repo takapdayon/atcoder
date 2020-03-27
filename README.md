@@ -61,7 +61,7 @@ class UnionFind():
             self.parents[x] = self.find(self.parents[x])
             return self.parents[x]
 
-    def union(self, x, y):
+    def unite(self, x, y):
         x = self.find(x)
         y = self.find(y)
 
@@ -99,3 +99,16 @@ class UnionFind():
 
 ```
 
+# dict数え上げ
+**dictで要素を数え上げたいとき**
+
+```py
+from collections import defaultdict
+
+s = str(input())
+d = defaultdict(int)
+
+for k in s:
+    d[k] += 1
+
+```
