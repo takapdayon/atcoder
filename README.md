@@ -4,9 +4,6 @@ Atcoderの私用のライブラリ、また私の解答・復習をpushするリ
 使用言語はPython3です。<br>
 (ライブラリ、基本ググって奇麗に整形して持ってきますが、間違い等あればツイッターでお知らせください・・・)
 
-# 自分の解答状態
-
-- 非常に便利なサイトです。自分のRankがわかりますね。目指せchallenger [https://kenkoooo.com/atcoder/](https://kenkoooo.com/atcoder/)
 
 # ライブラリ
 
@@ -31,7 +28,7 @@ for i in range(1 , n):
     print(nli[i + 1])
 ```
 
-**numpy使える場合
+**numpy使える場合**
 ```py
 import numpy as np
 n = list(int(input()))
