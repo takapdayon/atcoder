@@ -126,3 +126,18 @@ for k in s:
 ```py
 
 ```
+
+# 指定文字列から文字列変更
+
+**(2 , abcde) → deabc**
+```py
+def splitmozi(n , s):
+
+    spmozi = ""
+    s = list(map(str , s))
+
+    for i in range(len(s)):
+        spmozi += s[(-n) + i]
+
+    return spmozi
+```
