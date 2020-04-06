@@ -17,7 +17,6 @@ def cjsut(a1 , a2 , a3):
             return 10
 
 def main():
-    a1 , a2 , a3 = map(int , input().split())
-    print(cjsut(a1 , a2 , a3))
+    a1 , a2 , a3 = map(int , input().split())    print(cjsut(a1 , a2 , a3))
 if __name__ == '__main__':
     main()
