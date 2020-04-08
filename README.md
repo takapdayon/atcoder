@@ -156,3 +156,22 @@ def make_divisors(n):
     # divisors.sort()
     return divisors
 ```
+
+# 最大公約数
+**単体**
+```py
+def gcd(a , b):
+    while b != 0:
+        a , b = b , a % b
+    return a
+```
+
+**複数**
+```py
+from fractions import gcd
+from functools import reduce
+
+def gcdli(xl):
+    #xlはlist
+    return reduce(gcd , xl)
+```
