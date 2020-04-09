@@ -1,9 +1,21 @@
 def StringTransformation(s , t):
 
-    for i in range(len(s)):
-        s.replace(s[i] , t[i])
+    taious = {}
+    taiout = {}
+    ans = "Yes"
 
-    return "Yes" if s == t else "No"
+    for i in range(len(s)):
+        if t[i] in taiout.keys() and taiout[t[i]] != s[i]:
+            ans = "No"
+            break
+        elif s[i] in taious.keys() and taious[s[i]] != t[i]:
+            ans = "No"
+            break
+        else:
+            taiout[t[i]] = s[i]
+            taious[s[i]] = t[i]
+
+    return ans
 
 def main():
     s = str(input())
