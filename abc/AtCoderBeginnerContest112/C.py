@@ -7,18 +7,22 @@ def vvv(n , vl):
     kdict = defaultdict(int)
     for i in range(n):
         if i % 2 == 0:
-            gdict[vl[i]] += 1
+            gdict[str(vl[i])] += 1
         else:
-            kdict[vl[i]] += 1
+            kdict[str([i])] += 1
+    print(gdict)
 
-    glist = sorted(list(gdict.items()) , key = lambda x: x[1])
-    klist = sorted(list(kdict.items()) , key = lambda x: x[1])
+    glist = sorted(list(gdict) , key = lambda x: x[0])
+    klist = sorted(list(kdict) , key = lambda x: x[0])
+
+    print(glist)
+    print(klist)
 
     if int(glist[0][1]) == int(klist[0][1]):
         if int(glist[0][0]) == int(klist[0][0]):
             ans = int(klist[0][1])
     else:
-        ans = sum(list(gdict.values())) - int(glist[0][1]) + sum(list(kdict.values())) - int(klist[0][1])
+        ans = sum(int(glist[1])) - int(glist[0][1]) + sum(int(klist[1])) - int(klist[0][1])
 
     return ans
 

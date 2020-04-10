@@ -46,7 +46,7 @@ print(nli)
 
 # Union Find
 
-**コピpe**
+**グループわけをしてrootが同じか判定したいとき**
 
 ```py
 class UnionFind():
