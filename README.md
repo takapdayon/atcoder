@@ -168,7 +168,7 @@ def gcd(a , b):
 
 **複数**
 ```py
-from fractions import gcd
+from math import gcd
 from functools import reduce
 
 def gcdli(xl):
