@@ -144,6 +144,7 @@ def splitmozi(n , s):
 
 # 約数列挙
 **パクってきました**
+[ここ](https://qiita.com/LorseKudos/items/9eb560494862c8b4eb56)
 ```py
 def make_divisors(n):
     divisors = []
@@ -174,4 +175,41 @@ from functools import reduce
 def gcdli(xl):
     #xlはlist
     return reduce(gcd , xl)
+```
+
+# 最小公倍数
+**単体**
+```py
+from math import gcd
+a = int
+b = int
+lcm = (a*b // gcd(a, b))
+```
+
+**複数**
+```py
+```
+
+# bit全探索
+**python bit全探索で調べてもitertoolsのライブラリ関係の記事ないの辛い**
+**重複なし**
+```py
+import itertools
+
+area = 4
+tuplecount = 2
+itelist = list(itertools.combinations(range(1, area+1), tuplecount))
+print(itelist)
+#[(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+```
+
+**重複あり**
+```py
+import itertools
+
+area = 4
+tuplecount = 2
+itelist = list(itertools.combinations(range(1, area+1), tuplecount))
+print(itelist)
+#[(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 3), (3, 4), (4, 4)]
 ```
