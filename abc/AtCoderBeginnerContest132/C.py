@@ -1,16 +1,16 @@
-from math import gcd
-def anti_division(a, b, c, d):
+def divide_the_problems(n, dli):
 
-    ans = b-a+1
-    cd = a*b // gcd(a, b)
-    ccount = ((b+c)//c) - ((a+c-1)//c)
-    dcount = ((b+d)//d) - ((a+d-1)//d)
-    cdcount = ((b+cd)//cd) - ((a+cd-1)//cd)
+    dli.sort()
 
-    return ans-ccount-dcount+cdcount
+    n = int(n/2)
+    ans = dli[n] - dli[n-1]
+
+    return ans
+
 def main():
-    a, b, c, d = map(int, input().split())
-    print(anti_division(a, b, c, d))
+    n = int(input())
+    dli = list(map(int, input().split()))
+    print(divide_the_problems(n, dli))
 
 if __name__ == '__main__':
     main()

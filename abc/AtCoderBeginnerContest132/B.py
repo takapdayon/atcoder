@@ -1,19 +1,18 @@
-def bite_eating(n, l):
+def ordinary_number(n, pli):
 
-    count = 0
-    ans = 10**5
-    ansmin = 0
+    ans = 0
 
-    for i in range(1, n+1):
-        if ans > abs(i+l-1):
-            ans = abs(i+l-1)
-            ansmin = i+l-1
-        count += (i+l-1)
+    for i in range(1, n-1):
+        if pli[i-1] != pli[i] != pli[i+1]:
+            if pli[i-1] + pli[i] + pli[i+1] - max(pli[i-1], pli[i], pli[i+1]) - min(pli[i-1], pli[i], pli[i+1]) == pli[i]:
+                ans += 1
 
-    return count - ansmin
+    return ans
+
 def main():
-    n, l = map(int, input().split())
-    print(bite_eating(n, l))
+    n = int(input())
+    pli = list(map(int, input().split()))
+    print(ordinary_number(n, pli))
 
 if __name__ == '__main__':
     main()
