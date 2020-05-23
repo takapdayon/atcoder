@@ -209,7 +209,7 @@ import itertools
 
 area = 4
 tuplecount = 2
-itelist = list(itertools.combinations(range(1, area+1), tuplecount))
+li = list(itertools.combinations_with_replacement(range(1,area+1), tuplecount))
 print(itelist)
 #[(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 3), (3, 4), (4, 4)]
 ```
