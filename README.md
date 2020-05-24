@@ -213,3 +213,20 @@ li = list(itertools.combinations_with_replacement(range(1,area+1), tuplecount))
 print(itelist)
 #[(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 3), (3, 4), (4, 4)]
 ```
+
+# 二分探索
+**bisectを使う**
+```py
+import bisect
+
+searchlist = [3, 5, 2, 6, 1, 2]
+searchlist.sort() #[1, 2, 2, 3, 5, 6]
+searchint = 2
+
+# left, rightの違いは、同じ値がlistにあった際に、挿入ポイントを左右どちらにするか
+print(bisect.bisect_left(searchlist, searchint))
+# 1
+
+print(bisect.bisect_right(searchlist, searchint))
+# 3
+```
