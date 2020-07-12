@@ -1,17 +1,13 @@
-import math
-import itertools
+from math import gcd
 
-def average_length(n, xyli):
+def snack(a, b):
 
-    ans = 0
-
-
-    return ans
+    icm = (a*b // gcd(a, b))
+    return icm
 
 def main():
-    n = int(input())
-    xyli = [list(map(int, input().split()))for i in range(n)]
-    print(average_length(n, xyli))
+    a, b = map(int, input().split())
+    print(snack(a, b))
 
 if __name__ == '__main__':
     main()

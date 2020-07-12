@@ -1,10 +1,13 @@
-def blackjack(a, a2, a3):
+def roundone(a, b):
 
-    return "bust" if a+a2+a3 >= 22 else "win"
+    abc = "123"
+
+    return abc.replace(a, "").replace(b, "")
 
 def main():
-    a, a2, a3 = map(int, input().split())
-    print(blackjack(a, a2, a3))
+    a = str(input())
+    b = str(input())
+    print(roundone(a, b))
 
 if __name__ == '__main__':
     main()

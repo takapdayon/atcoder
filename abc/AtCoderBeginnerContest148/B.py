@@ -1,15 +1,16 @@
-def palindrome(s):
+def stringWithTheSameLength(n, s, t):
 
-    ans = 0
+    ans = ""
 
-    for i in range(len(s)//2):
-        if s[i] != s[-i-1]:
-            ans += 1
+    for i in range(n):
+        ans += s[i] + t[i]
+
     return ans
 
 def main():
-    s = list(str(input()))
-    print(palindrome(s))
+    n = int(input())
+    s, t = map(str, input().split())
+    print(stringWithTheSameLength(n, s, t))
 
 if __name__ == '__main__':
     main()
