@@ -214,6 +214,17 @@ print(itelist)
 #[(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 3), (3, 4), (4, 4)]
 ```
 
+**順列**
+```py
+import itertools
+
+area = 4
+tuplecount = 2
+irelist = list(itertools.permutations(range(1,area+1), tuplecount))
+print(itelist)
+#[(1, 2), (1, 3), (1, 4), (2, 1), (2, 3), (2, 4), (3, 1), (3, 2), (3, 4), (4, 1), (4, 2), (4, 3)]
+```
+
 # 二分探索
 **bisectを使う**
 ```py
