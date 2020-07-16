@@ -11,7 +11,7 @@ def countOrder(n, plist, qlist):
     for index, i in enumerate(irelist):
         if i == plist:
             p = index
-        elif i == qlist:
+        if i == qlist:
             q = index
 
     ans = abs(p-q)
