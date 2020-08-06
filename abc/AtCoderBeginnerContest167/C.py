@@ -3,7 +3,6 @@ def c167(n, m, x, cali):
 
     ans = 10**8
     skill = [0]*m
-    califlag = [True]*n
 
     for i in cali:
         for w in range(m):
