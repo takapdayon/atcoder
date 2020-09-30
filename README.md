@@ -115,16 +115,22 @@ for k in s:
 
 # DP
 
-**桁DP**
-
+**最大化DP**
 ```py
-
+def chmax(dp, i, a):
+    if a > dp[i]:
+        dp[i] = a
+        return True
+    return False
 ```
 
-**○○DP**
-
+**最小化DP**
 ```py
-
+def chmin(dp, i, a):
+    if a < dp[i]:
+        dp[i] = a
+        return True
+    return False
 ```
 
 # 指定文字列から文字列変更
