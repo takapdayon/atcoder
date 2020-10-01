@@ -4,21 +4,20 @@ def chmin(dp, i, a):
         return True
     return False
 
-def frog(n, hlist):
+def frog2(n, k, hlist):
 
     dp = [10**9]*(n)
     dp[0] = 0
 
-    for i in range(1, n):
-        chmin(dp, i, dp[i-1] + abs(hlist[i] - hlist[i-1]))
-        if i > 1:
-            chmin(dp, i, dp[i-2] + abs(hlist[i] - hlist[i-2]))
+    for i in range(n):
+        for w in range(i, min(i+k+1, n)):
+            chmin(dp, w, dp[i] + abs(hlist[i] - hlist[w]))
     return dp[-1]
 
 def main():
-    n = int(input())
+    n, k = map(int, input().split())
     hlist = list(map(int, input().split()))
-    print(frog(n, hlist))
+    print(frog2(n, k, hlist))
 
 if __name__ == '__main__':
     main()
