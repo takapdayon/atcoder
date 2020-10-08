@@ -132,6 +132,30 @@ def chmin(dp, i, a):
     return False
 ```
 
+**ナップザックDP**
+```py
+import numpy as np
+
+def knapsack(n, width, wvlist):
+
+    dp = np.zeros(width+1, dtype=int)  # widthにテーブルの長さ
+
+    for i, (w, v) in enumerate(wvlist, start=1):
+        dp[w:] = np.maximum(dp[w:], dp[:-w] + v)
+
+    return dp.max()
+    """
+    入力
+    3 8
+    3 30
+    4 50
+    5 60
+
+    結果
+    [0 0 0 30 50 60 60 80 90]
+    """
+```
+
 # 指定文字列から文字列変更
 
 **(2 , abcde) → deabc**
