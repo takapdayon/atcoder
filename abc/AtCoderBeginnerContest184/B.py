@@ -1,18 +1,13 @@
-def b183(n, alist):
+def b184(n, x, s):
 
-    ans = [0, 0]
+    for i in s:
+        if i == "x":
+            x -= 1 if x != 0 else 0
+        else:
+            x += 1
 
-    for i in range(2, max(alist)+1):
-        count = 0
-        for w in alist:
-            if w % i == 0:
-                count += 1
-        if ans[0] <= count:
-            ans[0] = count
-            ans[1] = i
+    return x
 
-    return ans
-
-n = int(input())
-alist = list(map(int, input().split()))
-print(b183(n, alist)[1])
+n, x = map(int, input().split())
+s = list(str(input()))
+print(b184(n, x, s))

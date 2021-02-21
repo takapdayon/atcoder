@@ -1,6 +1,7 @@
-def a183(x):
+def a184(a, b, c, d):
 
-    return x if x > 0 else 0
+    return a*d - b*c
 
-x = int(input())
-print(a183(x))
+a, b = map(int, input().split())
+c, d = map(int, input().split())
+print(a184(a, b, c, d))
