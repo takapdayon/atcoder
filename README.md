@@ -270,3 +270,11 @@ print(bisect.bisect_left(searchlist, searchint))
 print(bisect.bisect_right(searchlist, searchint))
 # 3
 ```
+
+# DFS
+**絶対に忘れるな**
+再起回数の上限値がsysで決まってるから、制約によっては引き上げる!!!
+```py
+import sys
+sys.setrecursionlimit(10000)
+```
