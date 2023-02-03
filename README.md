@@ -3,6 +3,37 @@
 Atcoderの私用のライブラリ、また私の解答・復習をpushするリポジトリです。
 使用言語はPython3です。<br>
 
+## input類
+```py
+# A
+A = input()
+
+# A B C
+A, B, C = map(str, input().split())
+# A, B, C
+
+# 1 3 5...n
+data = list(map(int, input().split()))
+# [1, 3, 5, ..., n]
+
+# 6
+# 3 1 4 1 5 2
+num = int(input())
+length = list(map(int, input().split()))
+# num = 6
+# length = [3, 1, 4, 1, 5, 2]
+
+# 4
+# 1 2 3
+# 4 5 6
+# 7 8 9
+# 10 11 12
+num = int(input())
+length = [list(map(int, input().split())) for _ in range(num)]
+# num = 6
+# length = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+```
+
 
 # ライブラリ
 
