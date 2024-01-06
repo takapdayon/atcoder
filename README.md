@@ -3,6 +3,8 @@
 Atcoderの私用のライブラリ、また私の解答・復習をpushするリポジトリです。
 使用言語はPython3です。<br>
 
+cliの奴(https://twoooooda.net/post/introduce-atcoder-cli/)
+
 ## input類
 ```py
 # A
