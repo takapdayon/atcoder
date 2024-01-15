@@ -34,28 +34,14 @@ def main():
     alist = i_list()
     blist = i_list()
 
-    dp = [0] * n
+    dp = [ -(10 ** 9) ] * (n + 1)
+    dp[1] = 0
 
-    dp[1] = alist[0]
+    for i in range(1, n):
+        dp[alist[i - 1]] = max(dp[alist[i - 1]], dp[i] + 100)
+        dp[blist[i - 1]] = max(dp[blist[i - 1]], dp[i] + 150)
 
-    for i in range(len(blist)):
-        dp[i + 2] = min(dp[i + 1] + alist[i + 1], dp[i] + blist[i])
-
-    print(dp[-1])
-
-def deliver_dp():
-    n = i_input()
-    alist = i_list()
-    blist = i_list()
-
-    dp = [ 10 ** 9 ] * n
-    dp[0] = 0
-    for i in range(n - 1):
-        dp[i + 1] = min(dp[i + 1], dp[i] + alist[i])
-        if i != n - 2:
-            dp[i + 2] = min(dp[i + 2], dp[i] + blist[i])
-
-    print(dp[n - 1])
+    print(dp[n])
 
 if __name__ == '__main__':
-    deliver_dp()
+    main()

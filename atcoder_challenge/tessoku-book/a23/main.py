@@ -30,32 +30,30 @@ num_list = []
 str_list = []
 
 def main():
-    n = i_input()
-    alist = i_list()
-    blist = i_list()
+    n, m = i_map()
+    bit = 2 ** n
+    arows = i_row_list(m)
+    dp = [ [ 10 ** 2 ] * bit for _ in range(m + 1)]
+    dp[0][0] = 0
 
-    dp = [0] * n
+    for i in range(1, m + 1):
+        for w in range(bit):
+            already = [ 1 ] * n
+            for k in range(n):
+                if (w // (2 ** k)) % 2 == 0:
+                    already[k] = 0
+            v = 0
+            for k in range(n):
+                if already[k] == 1 or arows[i - 1][k] == 1:
+                    v += (2 ** k)
 
-    dp[1] = alist[0]
+            dp[i][w] = min(dp[i][w], dp[i - 1][w])
+            dp[i][v] = min(dp[i][v], dp[i - 1][w] + 1)
 
-    for i in range(len(blist)):
-        dp[i + 2] = min(dp[i + 1] + alist[i + 1], dp[i] + blist[i])
-
-    print(dp[-1])
-
-def deliver_dp():
-    n = i_input()
-    alist = i_list()
-    blist = i_list()
-
-    dp = [ 10 ** 9 ] * n
-    dp[0] = 0
-    for i in range(n - 1):
-        dp[i + 1] = min(dp[i + 1], dp[i] + alist[i])
-        if i != n - 2:
-            dp[i + 2] = min(dp[i + 2], dp[i] + blist[i])
-
-    print(dp[n - 1])
+    if dp[m][bit - 1] == 10 ** 9:
+        print(-1)
+    else:
+        print(dp[m][bit - 1])
 
 if __name__ == '__main__':
-    deliver_dp()
+    main()

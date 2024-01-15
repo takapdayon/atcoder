@@ -31,31 +31,26 @@ str_list = []
 
 def main():
     n = i_input()
-    alist = i_list()
-    blist = i_list()
+    parows = i_row_list(n)
+    parows.append([0, 0])
 
-    dp = [0] * n
+    dp = [[0] * (n + 1) for _ in range(n + 1)]
 
-    dp[1] = alist[0]
+    max_value = 0
 
-    for i in range(len(blist)):
-        dp[i + 2] = min(dp[i + 1] + alist[i + 1], dp[i] + blist[i])
+    for i in range(1, n + 1):
+        for w in reversed(range(i - 1, n)):
+            if i == 1:
+                from_i = dp[i - 1][w]
+                from_w = dp[i][w + 1] + (i <= parows[w + 1][0] <= w + 1 and parows[w + 1][1]) or 0
+            else:
+                from_i = dp[i - 1][w] + (i <= parows[i - 2][0] <= w + 1 and parows[i - 2][1]) or 0
+                from_w = dp[i][w + 1] + (i <= parows[w + 1][0] <= w + 1 and parows[w + 1][1]) or 0
 
-    print(dp[-1])
+            dp[i][w] = max(from_i, from_w)
+            max_value = max(max_value, dp[i][w])
 
-def deliver_dp():
-    n = i_input()
-    alist = i_list()
-    blist = i_list()
-
-    dp = [ 10 ** 9 ] * n
-    dp[0] = 0
-    for i in range(n - 1):
-        dp[i + 1] = min(dp[i + 1], dp[i] + alist[i])
-        if i != n - 2:
-            dp[i + 2] = min(dp[i + 2], dp[i] + blist[i])
-
-    print(dp[n - 1])
+    print(max_value)
 
 if __name__ == '__main__':
-    deliver_dp()
+    main()

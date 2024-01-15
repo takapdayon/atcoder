@@ -31,31 +31,8 @@ str_list = []
 
 def main():
     n = i_input()
-    alist = i_list()
-    blist = i_list()
-
-    dp = [0] * n
-
-    dp[1] = alist[0]
-
-    for i in range(len(blist)):
-        dp[i + 2] = min(dp[i + 1] + alist[i + 1], dp[i] + blist[i])
-
-    print(dp[-1])
-
-def deliver_dp():
-    n = i_input()
-    alist = i_list()
-    blist = i_list()
-
-    dp = [ 10 ** 9 ] * n
-    dp[0] = 0
-    for i in range(n - 1):
-        dp[i + 1] = min(dp[i + 1], dp[i] + alist[i])
-        if i != n - 2:
-            dp[i + 2] = min(dp[i + 2], dp[i] + blist[i])
-
-    print(dp[n - 1])
+    mozi = 'o' * n
+    print(f'L{mozi}ng')
 
 if __name__ == '__main__':
-    deliver_dp()
+    main()

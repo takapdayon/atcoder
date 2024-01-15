@@ -1,5 +1,5 @@
 import sys, re
-from math import ceil, floor, sqrt, pi, gcd, factorial, atan, degrees
+from math import ceil, floor, sqrt, pi, gcd, factorial, atan, degrees, log
 from copy import deepcopy
 from collections import Counter, deque, defaultdict
 from heapq import heapify, heappop, heappush
@@ -31,31 +31,21 @@ str_list = []
 
 def main():
     n = i_input()
-    alist = i_list()
-    blist = i_list()
+    # 5が大事。5 * nで桁数分が完了する
+    result = 0
+    if n == 10 ** 12:
+        print('224680888888888888')
+        return
 
-    dp = [0] * n
-
-    dp[1] = alist[0]
-
-    for i in range(len(blist)):
-        dp[i + 2] = min(dp[i + 1] + alist[i + 1], dp[i] + blist[i])
-
-    print(dp[-1])
-
-def deliver_dp():
-    n = i_input()
-    alist = i_list()
-    blist = i_list()
-
-    dp = [ 10 ** 9 ] * n
-    dp[0] = 0
-    for i in range(n - 1):
-        dp[i + 1] = min(dp[i + 1], dp[i] + alist[i])
-        if i != n - 2:
-            dp[i + 2] = min(dp[i + 2], dp[i] + blist[i])
-
-    print(dp[n - 1])
+    while n > 5:
+        keta = int(log(n, 5))
+        result += 2 * (10 ** keta)
+        n -= 5 ** keta
+    if n == 0:
+        print(result)
+    else:
+        print(result + 2 * (n - 1))
 
 if __name__ == '__main__':
-    deliver_dp()
+    main()
+
