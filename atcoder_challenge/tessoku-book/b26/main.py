@@ -30,15 +30,16 @@ num_list = []
 str_list = []
 
 def main():
-    q = i_input()
-    for i in range(q):
-        x = i_input()
-        for w in range(2, int(sqrt(x)) + 1):
-            if x % w == 0:
-                print('No')
-                break
-        else:
-            print('Yes')
+    n = i_input()
+    nlist = [True] * (n + 1)
+    nlist[0], nlist[1] = False, False
+    for i in range(2, int(sqrt(n)) + 1):
+        for w in range(i ** 2, n + 1, i):
+            nlist[w] = False
+
+    for i in range(n + 1):
+        if nlist[i]:
+            print(i)
 
 if __name__ == '__main__':
     main()

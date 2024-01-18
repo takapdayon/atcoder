@@ -285,19 +285,34 @@
       "id": "math_and_algorithm_o",
       "label": "A27",
       "title": "Calculate GCD",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_o"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_o",
+      "directory": {
+        "path": "a27",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ab",
       "label": "A28",
       "title": "Blackboard",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ab"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ab",
+      "directory": {
+        "path": "a28",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_aq",
       "label": "A29",
       "title": "Power",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_aq"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_aq",
+      "directory": {
+        "path": "a29",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ad",
@@ -767,7 +782,12 @@
       "id": "tessoku_book_cv",
       "label": "B23",
       "title": "Traveling Salesman Problem",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cv"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cv",
+      "directory": {
+        "path": "b23",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_cw",
@@ -779,25 +799,45 @@
       "id": "tessoku_book_cy",
       "label": "B26",
       "title": "Output Prime Numbers",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cy"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cy",
+      "directory": {
+        "path": "b26",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_cz",
       "label": "B27",
       "title": "Calculate LCM",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cz"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cz",
+      "directory": {
+        "path": "b27",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_ap",
       "label": "B28",
       "title": "Fibonacci Easy (mod 1000000007)",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_ap"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_ap",
+      "directory": {
+        "path": "b28",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_db",
       "label": "B29",
       "title": "Power Hard",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_db"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_db",
+      "directory": {
+        "path": "b29",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dc",

@@ -29,16 +29,17 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
+def distance(town1, town2):
+    return (town1[0] - town2[0]) ** 2 + (town1[1] - town2[1]) ** 2
+
 def main():
-    q = i_input()
-    for i in range(q):
-        x = i_input()
-        for w in range(2, int(sqrt(x)) + 1):
-            if x % w == 0:
-                print('No')
-                break
-        else:
-            print('Yes')
+    n = i_input()
+    xyrows = i_row_list(n)
+    bit = 2 ** n
+
+    # yが通った都市の集合、xが今いる都市
+    dp = [ [ 10 ** 9 ] * (n) for _ in range(bit)]
+    dp[0][0] = 0
 
 if __name__ == '__main__':
     main()

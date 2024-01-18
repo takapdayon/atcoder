@@ -1,5 +1,5 @@
 import sys, re
-from math import ceil, floor, sqrt, pi, gcd, factorial, atan, degrees
+from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
 from copy import deepcopy
 from collections import Counter, deque, defaultdict
 from heapq import heapify, heappop, heappush
@@ -19,8 +19,7 @@ def s_map(): return input().split()
 def s_list(): return list(s_map())
 def s_row(N): return [s_input() for _ in range(N)]
 def s_row_str(N): return [s_list() for _ in range(N)]
-def s_row_list(N): return [list(s_map()) for _ in range(N)]
-def lcm(a, b): return a * b // gcd(a, b)
+def s_row_list(N): return [s_list() for _ in range(N)]
 
 sys.setrecursionlimit(10 ** 6)
 
@@ -30,15 +29,20 @@ num_list = []
 str_list = []
 
 def main():
-    q = i_input()
-    for i in range(q):
-        x = i_input()
-        for w in range(2, int(sqrt(x)) + 1):
-            if x % w == 0:
-                print('No')
-                break
-        else:
-            print('Yes')
+    n = i_input()
+    tarows = s_row_list(n)
+    result = 0
+    for t, a in tarows:
+        if t == '+':
+            result += int(a)
+        if t == '-':
+            result -= int(a)
+        if t == '*':
+            result *= int(a)
+        if result < 0:
+            result += 10000
+        result %= 10000
+        print(result)
 
 if __name__ == '__main__':
     main()

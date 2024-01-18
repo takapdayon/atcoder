@@ -33,7 +33,7 @@ def main():
     n, m = i_map()
     bit = 2 ** n
     arows = i_row_list(m)
-    dp = [ [ 10 ** 2 ] * bit for _ in range(m + 1)]
+    dp = [ [ 10 ** 9 ] * bit for _ in range(m + 1)]
     dp[0][0] = 0
 
     for i in range(1, m + 1):
