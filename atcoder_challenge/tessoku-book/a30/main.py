@@ -29,14 +29,11 @@ num_list = []
 str_list = []
 
 def main():
-    a, b = i_map()
-    result = 1
-    while b:
-        if b % 2:
-            result = (result * a) % MOD
-        a = (a * a) % MOD
-        b >>= 1
-    print(result)
+    n, r = i_map()
+    mod_n = factorial(n) % MOD
+    mod_r = (factorial(r) * factorial(n - r)) % MOD
+
+    print(mod_n * pow(mod_r, MOD - 2, MOD) % MOD)
 
 if __name__ == '__main__':
     main()

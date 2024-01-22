@@ -29,14 +29,21 @@ num_list = []
 str_list = []
 
 def main():
-    a, b = i_map()
-    result = 1
-    while b:
-        if b % 2:
-            result = (result * a) % MOD
-        a = (a * a) % MOD
-        b >>= 1
-    print(result)
+    n = i_input()
+    alist = i_list()
+
+    dp = [[0] * (n + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        dp[n][i] = alist[i - 1]
+
+    for i in reversed(range(1, n)):
+        for w in range(1, i + 1):
+            if i % 2:
+                dp[i][w] = max(dp[i + 1][w], dp[i + 1][w + 1])
+            else:
+                dp[i][w] = min(dp[i + 1][w], dp[i + 1][w + 1])
+
+    print(dp[1][1])
 
 if __name__ == '__main__':
     main()

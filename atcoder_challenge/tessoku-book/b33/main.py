@@ -29,14 +29,14 @@ num_list = []
 str_list = []
 
 def main():
-    a, b = i_map()
-    result = 1
-    while b:
-        if b % 2:
-            result = (result * a) % MOD
-        a = (a * a) % MOD
-        b >>= 1
-    print(result)
+    n, h, w = i_map()
+    abrows = i_row_list(n)
+    result = 0
+    for a, b in abrows:
+        result = result ^ (a - 1)
+        result = result ^ (b - 1)
+
+    print((result and 'First') or 'Second')
 
 if __name__ == '__main__':
     main()

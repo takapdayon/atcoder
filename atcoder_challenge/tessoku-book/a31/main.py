@@ -29,14 +29,11 @@ num_list = []
 str_list = []
 
 def main():
-    a, b = i_map()
-    result = 1
-    while b:
-        if b % 2:
-            result = (result * a) % MOD
-        a = (a * a) % MOD
-        b >>= 1
-    print(result)
+    n = i_input()
+    three = n // 3
+    five = n // 5
+    fifteen = n // 15
+    print((three + five) - fifteen)
 
 if __name__ == '__main__':
     main()

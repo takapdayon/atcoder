@@ -29,14 +29,20 @@ num_list = []
 str_list = []
 
 def main():
-    a, b = i_map()
-    result = 1
-    while b:
-        if b % 2:
-            result = (result * a) % MOD
-        a = (a * a) % MOD
-        b >>= 1
-    print(result)
+    n, k = i_map()
+    alist = i_list()
+
+    dp = [False] * (n + 1)
+
+    for i in range(1, n + 1):
+        result = []
+        for a in alist:
+            if a > i:
+                continue
+            result.append(dp[i - a])
+        dp[i] = not all(result)
+
+    print((dp[n] and 'First') or 'Second')
 
 if __name__ == '__main__':
     main()

@@ -318,43 +318,78 @@
       "id": "tessoku_book_ad",
       "label": "A30",
       "title": "Combination",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ad"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ad",
+      "directory": {
+        "path": "a30",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ae",
       "label": "A31",
       "title": "Divisors",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ae"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ae",
+      "directory": {
+        "path": "a31",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_af",
       "label": "A32",
       "title": "Game 1",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_af"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_af",
+      "directory": {
+        "path": "a32",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ag",
       "label": "A33",
       "title": "Game 2",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ag"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ag",
+      "directory": {
+        "path": "a33",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ah",
       "label": "A34",
       "title": "Game 3",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ah"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ah",
+      "directory": {
+        "path": "a34",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ai",
       "label": "A35",
       "title": "Game 4",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ai"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ai",
+      "directory": {
+        "path": "a35",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_aj",
       "label": "A36",
       "title": "Travel",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aj"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aj",
+      "directory": {
+        "path": "a36",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ak",
@@ -843,25 +878,45 @@
       "id": "tessoku_book_dc",
       "label": "B30",
       "title": "Combination 2",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dc"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dc",
+      "directory": {
+        "path": "b30",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dd",
       "label": "B31",
       "title": "Divisors Hard",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dd"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dd",
+      "directory": {
+        "path": "b31",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_de",
       "label": "B32",
       "title": "Game 5",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_de"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_de",
+      "directory": {
+        "path": "b32",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_df",
       "label": "B33",
       "title": "Game 6",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_df"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_df",
+      "directory": {
+        "path": "b33",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dg",
@@ -873,7 +928,12 @@
       "id": "tessoku_book_di",
       "label": "B36",
       "title": "Switching Lights",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_di"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_di",
+      "directory": {
+        "path": "b36",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dj",
