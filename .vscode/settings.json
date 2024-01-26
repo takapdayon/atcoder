@@ -1,0 +1,5 @@
+{
+  "rust-analyzer.linkedProjects": [
+    ".\\rust\\tessoku-book\\Cargo.toml"
+  ],
+}

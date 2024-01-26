@@ -29,16 +29,22 @@ num_list = []
 str_list = []
 
 def main():
-    n, k = i_map()
-    s = s_input()
+    d, n = i_map()
+    lrhrows = i_row_list(n)
 
-    if (s.count('1') + k) % 2 == 1:
-        print('No')
-    else:
-        print('Yes')
+    days = [ 24 ] * (d + 1)
+
+    # lrhの範囲の中で最小の値に更新していく
+
+    for l, r, h in lrhrows:
+        for day in range(l, r + 1):
+            days[day] = min(days[day], h)
+
+    print(sum(days) - 24)
 
 if __name__ == '__main__':
     main()
 
 # テスト: oj t -c 'python main.py'
 # 提出: acc s main.py -- --guess-python-interpreter pypy
+

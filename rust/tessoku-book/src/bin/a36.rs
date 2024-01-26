@@ -7,7 +7,7 @@ fn main() {
     }
     if n * 2 - 2 > k {
         println!("No");
-        return
+        return;
     }
     if k % 2 == 0 {
         println!("Yes");

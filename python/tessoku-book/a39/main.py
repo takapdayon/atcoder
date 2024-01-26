@@ -29,13 +29,19 @@ num_list = []
 str_list = []
 
 def main():
-    n, k = i_map()
-    s = s_input()
+    n = i_input()
+    lrrows = i_row_list(n)
+    st_lrrows = sorted(lrrows, key=lambda x: x[1])
+    result = 0
+    current = 0
 
-    if (s.count('1') + k) % 2 == 1:
-        print('No')
-    else:
-        print('Yes')
+    for i in range(n):
+        if st_lrrows[i][0] < current:
+            continue
+        result += 1
+        current = st_lrrows[i][1]
+
+    print(result)
 
 if __name__ == '__main__':
     main()

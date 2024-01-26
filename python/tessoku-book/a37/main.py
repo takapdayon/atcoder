@@ -29,13 +29,12 @@ num_list = []
 str_list = []
 
 def main():
-    n, k = i_map()
-    s = s_input()
+    n, m, b = i_map()
+    alist = i_list()
+    clist = i_list()
 
-    if (s.count('1') + k) % 2 == 1:
-        print('No')
-    else:
-        print('Yes')
+    result = b * n * m + sum(alist) * m + sum(clist) * n
+    print(result)
 
 if __name__ == '__main__':
     main()

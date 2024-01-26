@@ -2,15 +2,13 @@ use proconio::input;
 
 fn main() {
     input! {
-        N: usize
-        K: usize
+        n: usize,
+        m: usize,
+        b: usize,
+        alist: [usize; n],
+        clist: [usize; m],
     }
-    if (N * 2 - 2 > K) {
-        println!('No')
-    }
-    if (K % 2 == 0) {
-        println!('Yes')
-    } else {
-        println!('No')
-    }
+    let result: usize =
+        b * n * m + alist.iter().sum::<usize>() * m + clist.iter().sum::<usize>() * n;
+    println!("{}", result)
 }

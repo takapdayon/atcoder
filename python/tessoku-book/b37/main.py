@@ -29,16 +29,23 @@ num_list = []
 str_list = []
 
 def main():
-    n, k = i_map()
-    s = s_input()
-
-    if (s.count('1') + k) % 2 == 1:
-        print('No')
-    else:
-        print('Yes')
+    n = i_input()
+    """
+    どの桁数でも足される値は同じ(1~9まで)
+    5 = 1 + 2 + 3 + 4 + 5
+    15 = (1~9) + (1 + 2 + 3 + 4 + 5)
+    25 = (1~9) * 2 + (1 + 2 + 3 + 4 + 5)
+    """
+    digit_sum = sum([i for i in range(1, 10)])
+    keta = len(str(n))
+    result = 0
+    for i in range(1, keta + 1):
+        result += n % 10 ** i // (10 ** i - 1) * digit_sum * (10 ** i)
+    print(result)
 
 if __name__ == '__main__':
     main()
 
 # テスト: oj t -c 'python main.py'
 # 提出: acc s main.py -- --guess-python-interpreter pypy
+

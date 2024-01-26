@@ -29,16 +29,23 @@ num_list = []
 str_list = []
 
 def main():
-    n, k = i_map()
+    n = i_input()
     s = s_input()
 
-    if (s.count('1') + k) % 2 == 1:
-        print('No')
-    else:
-        print('Yes')
+    grass = [1] * n
+    for i, mozi in enumerate(s, 1):
+        if mozi == "A":
+            grass[i] = grass[i - 1] + 1
+
+    for i in reversed(range(len(s))):
+        if s[i] == "B":
+            grass[i] = max(grass[i + 1] + 1, grass[i])
+
+    print(sum(grass))
 
 if __name__ == '__main__':
     main()
 
 # テスト: oj t -c 'python main.py'
 # 提出: acc s main.py -- --guess-python-interpreter pypy
+

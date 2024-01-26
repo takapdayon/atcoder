@@ -395,19 +395,34 @@
       "id": "tessoku_book_ak",
       "label": "A37",
       "title": "Travel 2",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ak"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ak",
+      "directory": {
+        "path": "a37",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_al",
       "label": "A38",
       "title": "Black Company 1",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_al"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_al",
+      "directory": {
+        "path": "a38",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_bn",
       "label": "A39",
       "title": "Interval Scheduling Problem",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_bn"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_bn",
+      "directory": {
+        "path": "a39",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_an",
@@ -939,13 +954,23 @@
       "id": "tessoku_book_dj",
       "label": "B37",
       "title": "Sum of Digits",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dj"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dj",
+      "directory": {
+        "path": "b37",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dk",
       "label": "B38",
       "title": "Heights of Grass",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dk"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dk",
+      "directory": {
+        "path": "b38",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dl",
