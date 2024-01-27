@@ -976,7 +976,12 @@
       "id": "tessoku_book_dl",
       "label": "B39",
       "title": "Taro's Job",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dl"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dl",
+      "directory": {
+        "path": "b39",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dm",
