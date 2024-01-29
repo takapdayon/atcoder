@@ -428,37 +428,67 @@
       "id": "tessoku_book_an",
       "label": "A40",
       "title": "Triangle",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_an"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_an",
+      "directory": {
+        "path": "a40",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ao",
       "label": "A41",
       "title": "Tile Coloring",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ao"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ao",
+      "directory": {
+        "path": "a41",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ap",
       "label": "A42",
       "title": "Soccer",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ap"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ap",
+      "directory": {
+        "path": "a42",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_aq",
       "label": "A43",
       "title": "Travel 3",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aq"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aq",
+      "directory": {
+        "path": "a43",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ar",
       "label": "A44",
       "title": "Change and Reverse",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ar"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ar",
+      "directory": {
+        "path": "a44",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_as",
       "label": "A45",
       "title": "Card Elimination",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_as"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_as",
+      "directory": {
+        "path": "a45",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_at",
@@ -987,31 +1017,56 @@
       "id": "tessoku_book_dm",
       "label": "B40",
       "title": "Divide by 100",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dm"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dm",
+      "directory": {
+        "path": "b40",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dn",
       "label": "B41",
       "title": "Reverse of Euclid",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dn"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dn",
+      "directory": {
+        "path": "b41",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_do",
       "label": "B42",
       "title": "Two Faced Cards",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_do"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_do",
+      "directory": {
+        "path": "b42",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dp",
       "label": "B43",
       "title": "Quiz Contest",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dp"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dp",
+      "directory": {
+        "path": "b43",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dq",
       "label": "B44",
       "title": "Grid Operations",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dq"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dq",
+      "directory": {
+        "path": "b44",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dr",

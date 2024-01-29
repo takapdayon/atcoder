@@ -105,7 +105,7 @@ platform = "atcoder"
 #
 # - `contest`:      Contest ID. **May be nil**
 # - `package_name`: Package name
-path = "./rust/{{ contest }}"
+path = "./{{ contest }}"
 
 #[new]
 #kind = "oj-api"
