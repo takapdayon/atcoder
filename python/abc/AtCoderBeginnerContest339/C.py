@@ -1,8 +1,8 @@
 import sys, re
-from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
+from math import ceil, floor, sqrt, pi, gcd, factorial, atan, degrees
 from copy import deepcopy
 from collections import Counter, deque, defaultdict
-from heapq import heapify, heappop, heappush, merge
+from heapq import heapify, heappop, heappush
 from itertools import accumulate, product, combinations, combinations_with_replacement, permutations
 from bisect import bisect, bisect_left, bisect_right
 from functools import reduce
@@ -19,7 +19,8 @@ def s_map(): return input().split()
 def s_list(): return list(s_map())
 def s_row(N): return [s_input() for _ in range(N)]
 def s_row_str(N): return [s_list() for _ in range(N)]
-def s_row_list(N): return [s_list() for _ in range(N)]
+def s_row_list(N): return [list(s_map()) for _ in range(N)]
+def lcm(a, b): return a * b // gcd(a, b)
 
 sys.setrecursionlimit(10 ** 6)
 
@@ -29,27 +30,23 @@ num_list = []
 str_list = []
 
 def main():
-    n, d = i_map()
-    xyrows = i_row_list(n)
-    xydic = {i:[] for i in range(1, d + 1)}
+    n = i_input()
+    alist = i_list()
+    mi = 0
+    su = 0
 
-    for x, y in xyrows:
-        heappush(xydic[x], -y)
+    for a in alist:
+        su += a
+        if su <= 0:
+            mi = min(mi, su)
 
-    heap = []
-    result = 0
-
-    for i in range(1, d + 1):
-        for d in xydic.get(i, []):
-            heappush(heap, d)
-        if heap:
-            earn = heappop(heap)
-            result += -earn
-
-    print(result)
+    if su >= 0:
+        print(abs(mi) + su)
+    else:
+        if su == mi:
+            print(0)
+        else:
+            print(abs(mi) - abs(su))
 
 if __name__ == '__main__':
     main()
-
-# テスト: oj t -c 'python main.py'
-# 提出: acc s main.py -- --guess-python-interpreter pypy

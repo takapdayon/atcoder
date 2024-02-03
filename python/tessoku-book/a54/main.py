@@ -2,7 +2,7 @@ import sys, re
 from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
 from copy import deepcopy
 from collections import Counter, deque, defaultdict
-from heapq import heapify, heappop, heappush, merge
+from heapq import heapify, heappop, heappush
 from itertools import accumulate, product, combinations, combinations_with_replacement, permutations
 from bisect import bisect, bisect_left, bisect_right
 from functools import reduce
@@ -29,24 +29,15 @@ num_list = []
 str_list = []
 
 def main():
-    n, d = i_map()
-    xyrows = i_row_list(n)
-    xydic = {i:[] for i in range(1, d + 1)}
+    q = i_input()
+    score = {}
 
-    for x, y in xyrows:
-        heappush(xydic[x], -y)
-
-    heap = []
-    result = 0
-
-    for i in range(1, d + 1):
-        for d in xydic.get(i, []):
-            heappush(heap, d)
-        if heap:
-            earn = heappop(heap)
-            result += -earn
-
-    print(result)
+    for _ in range(q):
+        query = s_list()
+        if query[0] == '1':
+            score[query[1]] = query[2]
+        else:
+            print(score[query[1]])
 
 if __name__ == '__main__':
     main()

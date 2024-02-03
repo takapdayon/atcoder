@@ -29,7 +29,39 @@ num_list = []
 str_list = []
 
 def main():
-    pass
+    nc = s_map()
+    alist = s_input()
+
+    '''
+    全探索するなら:
+        最後からalistの文字サイズになるまであり得る分岐を全列挙する
+    Blueで終わる場合:
+        w+b or r+rしかありえない
+    Redで終わる場合:
+        b+b or w+rしかありえない
+    Whiteで終わる場合:
+        w+w or b+rしかありえない
+    '''
+    count = 0
+
+    for a in alist:
+        if a == 'R':
+            count += 2
+        if a == 'B':
+            count += 1
+
+    if count % 3 == 0 and nc[1] == 'W':
+        print('Yes')
+        return
+
+    if count % 3 == 1 and nc[1] == 'B':
+        print('Yes')
+        return
+
+    if count % 3 == 2 and nc[1] == 'R':
+        print('Yes')
+        return
+    print('No')
 
 if __name__ == '__main__':
     main()

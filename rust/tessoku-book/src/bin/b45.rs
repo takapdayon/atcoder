@@ -1,5 +1,14 @@
 use proconio::input;
 
 fn main() {
-    todo!();
+    input! {
+        a: isize,
+        b: isize,
+        c: isize,
+    }
+    if a + b + c == 0 {
+        println!("Yes")
+    } else {
+        println!("No")
+    }
 }

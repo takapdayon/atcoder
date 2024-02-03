@@ -2,7 +2,7 @@ import sys, re
 from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
 from copy import deepcopy
 from collections import Counter, deque, defaultdict
-from heapq import heapify, heappop, heappush, merge
+from heapq import heapify, heappop, heappush
 from itertools import accumulate, product, combinations, combinations_with_replacement, permutations
 from bisect import bisect, bisect_left, bisect_right
 from functools import reduce
@@ -28,25 +28,23 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
+def recursive(alist, index):
+    alist[index - 1] = '@'
+    if index - 2 == -1:
+        return
+    if index + 1 > len(alist):
+        return
+    if alist[index - 2] == '.':
+        recursive(alist, index - 1)
+    if alist[index] == '.':
+        recursive(alist, index + 1)
+
 def main():
-    n, d = i_map()
-    xyrows = i_row_list(n)
-    xydic = {i:[] for i in range(1, d + 1)}
+    n, x = i_map()
+    alist = list(s_input())
+    recursive(alist, x)
 
-    for x, y in xyrows:
-        heappush(xydic[x], -y)
-
-    heap = []
-    result = 0
-
-    for i in range(1, d + 1):
-        for d in xydic.get(i, []):
-            heappush(heap, d)
-        if heap:
-            earn = heappop(heap)
-            result += -earn
-
-    print(result)
+    print(''.join(alist))
 
 if __name__ == '__main__':
     main()
