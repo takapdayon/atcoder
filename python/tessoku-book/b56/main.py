@@ -4,11 +4,10 @@ from copy import deepcopy
 from collections import Counter, deque, defaultdict
 from heapq import heapify, heappop, heappush
 from itertools import accumulate, product, combinations, combinations_with_replacement, permutations
-from bisect import bisect, bisect_left, bisect_right, insort
+from bisect import bisect, bisect_left, bisect_right
 from functools import reduce
 from decimal import Decimal, getcontext
 from sortedcontainers import SortedSet, SortedList, SortedDict
-
 
 # input = sys.stdin.readline
 def i_input(): return int(input())
@@ -31,31 +30,32 @@ num_list = []
 str_list = []
 
 def main():
-    q = i_input()
-    queries = i_row_list(q)
-    cards = SortedSet([])
+    n, q = i_map()
+    s = s_input()
+    rs = s[::-1]
+    h = [0] * (n + 1)
+    rh = [0] * (n + 1)
 
+    for i in range(n):
+        h[i + 1] = (h[i] * 100 + ord(s[i])) % MOD
+        rh[i + 1] = (rh[i] * 100 + ord(rs[i])) % MOD
 
-    for h, query in queries:
-        if h == 1:
-            cards.add(query)
+    for i in range(q):
+        l, r = i_map()
+        rl, rr = (n - r + 1), (n - l + 1)
+        h_v = h[r] - (h[l - 1] * pow(100, r - l + 1, MOD)) % MOD
+        if h_v < 0:
+            h_v += MOD
+        rh_v = rh[rr] - (rh[rl - 1] * pow(100, rr - rl + 1, MOD)) % MOD
+        if rh_v < 0:
+            rh_v += MOD
+        if h_v == rh_v:
+            print("Yes")
         else:
-            index = cards.bisect_left(query)
-            left = cards[:index]
-            right = cards[index:]
-            if not left and not right:
-                print(-1)
-                continue
-            if left and not right:
-                print(query - left[-1])
-                continue
-            if not left and right:
-                print(right[0] - query)
-                continue
-            print(min(query - left[-1], right[0] - query))
+            print("No")
 
 if __name__ == '__main__':
     main()
 
-# テスト: oj t -c 'python main.py'
+# テスト: oj t -c 'poetry run python main.py'
 # 提出: acc s main.py -- --guess-python-interpreter pypy

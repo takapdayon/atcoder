@@ -4,11 +4,10 @@ from copy import deepcopy
 from collections import Counter, deque, defaultdict
 from heapq import heapify, heappop, heappush
 from itertools import accumulate, product, combinations, combinations_with_replacement, permutations
-from bisect import bisect, bisect_left, bisect_right, insort
+from bisect import bisect, bisect_left, bisect_right
 from functools import reduce
 from decimal import Decimal, getcontext
 from sortedcontainers import SortedSet, SortedList, SortedDict
-
 
 # input = sys.stdin.readline
 def i_input(): return int(input())
@@ -31,31 +30,28 @@ num_list = []
 str_list = []
 
 def main():
-    q = i_input()
-    queries = i_row_list(q)
-    cards = SortedSet([])
+    n, q = i_map()
+    alist = i_list()
+    dp = [[0] * (n) for _ in range(30)]
+    dp[0] = alist
 
+    dp[0] = [a - 1 for a in alist]
 
-    for h, query in queries:
-        if h == 1:
-            cards.add(query)
-        else:
-            index = cards.bisect_left(query)
-            left = cards[:index]
-            right = cards[index:]
-            if not left and not right:
-                print(-1)
-                continue
-            if left and not right:
-                print(query - left[-1])
-                continue
-            if not left and right:
-                print(right[0] - query)
-                continue
-            print(min(query - left[-1], right[0] - query))
+    for i in range(1, 30):
+        for w in range(n):
+            dp[i][w] = dp[i - 1][dp[i - 1][w]]
+
+    for _ in range(q):
+        x, y = i_map()
+        #2進数でフラグが経つところで更新していく
+        x -= 1
+        for d in range(30):
+            if y & 1 << d:
+                x = dp[d][x]
+        print(x + 1)
 
 if __name__ == '__main__':
     main()
 
-# テスト: oj t -c 'python main.py'
+# テスト: oj t -c 'poetry run python main.py'
 # 提出: acc s main.py -- --guess-python-interpreter pypy

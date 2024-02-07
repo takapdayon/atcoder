@@ -29,7 +29,32 @@ num_list = []
 str_list = []
 
 def main():
-    pass
+    '''
+    rolling hashに関してかつっぱさんのyoutubeがとても分かりやすかった
+    https://www.youtube.com/watch?v=Yc37rKy2-tQ
+
+    注意はMODの大きさで衝突確率が変動することと、絶対に衝突させたくない場合は一致した際に文字列も確認すること
+    今度DPでも解いてみたい。
+    '''
+    n, q = i_map()
+    s = s_input()
+    queries = i_row_list(q)
+    strings = [0]
+    for i in range(n):
+        hash_v = (strings[i] * 100 + ord(s[i])) % MOD
+        strings.append(hash_v)
+
+    for a, b, c, d in queries:
+        hash_ab = strings[b] - (strings[a - 1] * pow(100, b - a + 1, MOD)) % MOD
+        if hash_ab < 0:
+            hash_ab += MOD
+        hash_cd = strings[d] - (strings[c - 1] * pow(100, d - c + 1, MOD)) % MOD
+        if hash_cd < 0:
+            hash_cd += MOD
+        if hash_ab == hash_cd:
+            print("Yes")
+        else:
+            print("No")
 
 if __name__ == '__main__':
     main()

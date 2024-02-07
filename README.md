@@ -1,11 +1,13 @@
 # Atcoder
 
-Atcoderの私用のライブラリ、また私の解答・復習をpushするリポジトリです。
-使用言語はPython3です。<br>
+Atcoder の私用のライブラリ、また私の解答・復習を push するリポジトリです。
+使用言語は Python3 です。<br>
 
-cliの奴(https://twoooooda.net/post/introduce-atcoder-cli/)
+cli の奴(https://twoooooda.net/post/introduce-atcoder-cli/)
+時たま見返して: https://img.atcoder.jp/file/language-update/language-list.html
 
-## input類
+## input 類
+
 ```py
 # A
 A = input()
@@ -36,11 +38,9 @@ length = [list(map(int, input().split())) for _ in range(num)]
 # length = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
 ```
 
-
 # ライブラリ
 
-
-# 英文字26loop
+# 英文字 26loop
 
 ```py
 for i in range(ord('a'), ord('z') + 1):
@@ -49,6 +49,7 @@ for i in range(ord('a'), ord('z') + 1):
 ```
 
 # 累積和
+
 **特定の範囲の合計値を高速に計算できる**
 
 ```py
@@ -60,7 +61,8 @@ for i in range(1 , n):
     print(nli[i + 1])
 ```
 
-**numpy使える場合**
+**numpy 使える場合**
+
 ```py
 import numpy as np
 n = list(int(input()))
@@ -69,16 +71,17 @@ nli = np.cumsum(n)
 print(nli)
 ```
 
+# 2 次元累積和
 
-# 2次元累積和
 **そのうち**
+
 ```py
 
 ```
 
 # Union Find
 
-**グループわけをしてrootが同じか判定したいとき**
+**グループわけをして root が同じか判定したいとき**
 
 ```py
 class UnionFind():
@@ -131,8 +134,9 @@ class UnionFind():
 
 ```
 
-# dict数え上げ
-**dictで要素を数え上げたいとき**
+# dict 数え上げ
+
+**dict で要素を数え上げたいとき**
 
 ```py
 from collections import defaultdict
@@ -147,7 +151,8 @@ for k in s:
 
 # DP
 
-**最大化DP**
+**最大化 DP**
+
 ```py
 def chmax(dp, i, a):
     if a > dp[i]:
@@ -156,7 +161,8 @@ def chmax(dp, i, a):
     return False
 ```
 
-**最小化DP**
+**最小化 DP**
+
 ```py
 def chmin(dp, i, a):
     if a < dp[i]:
@@ -165,7 +171,8 @@ def chmin(dp, i, a):
     return False
 ```
 
-**ナップザックDP**
+**ナップザック DP**
+
 ```py
 import numpy as np
 
@@ -192,6 +199,7 @@ def knapsack(n, width, wvlist):
 # 指定文字列から文字列変更
 
 **(2 , abcde) → deabc**
+
 ```py
 def splitmozi(n , s):
 
@@ -205,8 +213,10 @@ def splitmozi(n , s):
 ```
 
 # 約数列挙
+
 **パクってきました**
 [ここ](https://qiita.com/LorseKudos/items/9eb560494862c8b4eb56)
+
 ```py
 def make_divisors(n):
     divisors = []
@@ -221,7 +231,9 @@ def make_divisors(n):
 ```
 
 # 最大公約数
+
 **単体**
+
 ```py
 def gcd(a , b):
     while b != 0:
@@ -230,6 +242,7 @@ def gcd(a , b):
 ```
 
 **複数**
+
 ```py
 from math import gcd
 from functools import reduce
@@ -240,7 +253,9 @@ def gcdli(xl):
 ```
 
 # 最小公倍数
+
 **単体**
+
 ```py
 from math import gcd
 a = int
@@ -249,12 +264,16 @@ lcm = (a*b // gcd(a, b))
 ```
 
 **複数**
+
 ```py
+
 ```
 
-# bit全探索
-**python bit全探索で調べてもitertoolsのライブラリ関係の記事ないの辛い**
+# bit 全探索
+
+**python bit 全探索で調べても itertools のライブラリ関係の記事ないの辛い**
 **重複なし**
+
 ```py
 import itertools
 
@@ -266,6 +285,7 @@ print(itelist)
 ```
 
 **重複あり**
+
 ```py
 import itertools
 
@@ -277,6 +297,7 @@ print(itelist)
 ```
 
 **順列**
+
 ```py
 import itertools
 
@@ -288,7 +309,9 @@ print(itelist)
 ```
 
 # 二分探索
-**bisectを使う**
+
+**bisect を使う**
+
 ```py
 import bisect
 
@@ -305,8 +328,10 @@ print(bisect.bisect_right(searchlist, searchint))
 ```
 
 # DFS
+
 **絶対に忘れるな**
-再起回数の上限値がsysで決まってるから、制約によっては引き上げる!!!
+再起回数の上限値が sys で決まってるから、制約によっては引き上げる!!!
+
 ```py
 import sys
 sys.setrecursionlimit(10000)
