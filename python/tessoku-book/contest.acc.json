@@ -617,19 +617,34 @@
       "id": "tessoku_book_bi",
       "label": "A61",
       "title": "Adjacent Vertices",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bi"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bi",
+      "directory": {
+        "path": "a61",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_am",
       "label": "A62",
       "title": "Depth First Search",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_am"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_am",
+      "directory": {
+        "path": "a62",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_an",
       "label": "A63",
       "title": "Shortest Path 1",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_an"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_an",
+      "directory": {
+        "path": "a63",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_bl",
@@ -1216,19 +1231,34 @@
       "id": "tessoku_book_eh",
       "label": "B61",
       "title": "Influencer",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_eh"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_eh",
+      "directory": {
+        "path": "b61",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ei",
       "label": "B62",
       "title": "Print a Path",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ei"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ei",
+      "directory": {
+        "path": "b62",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc007_3",
       "label": "B63",
       "title": "幅優先探索",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/abc007_3"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/abc007_3",
+      "directory": {
+        "path": "b63",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ek",
