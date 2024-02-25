@@ -1,0 +1,20 @@
+{
+  "contest": {
+    "id": "ahc007",
+    "title": "THIRD PROGRAMMING CONTEST 2021 （AtCoder Heuristic Contest 007）",
+    "url": "https://atcoder.jp/contests/ahc007"
+  },
+  "tasks": [
+    {
+      "id": "ahc007_a",
+      "label": "A",
+      "title": "Online MST",
+      "url": "https://atcoder.jp/contests/ahc007/tasks/ahc007_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.py"
+      }
+    }
+  ]
+}

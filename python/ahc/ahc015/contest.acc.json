@@ -1,0 +1,20 @@
+{
+  "contest": {
+    "id": "ahc015",
+    "title": "TOYOTA MOTOR CORPORATION Programming Contest 2022（AtCoder Heuristic Contest 015）",
+    "url": "https://atcoder.jp/contests/ahc015"
+  },
+  "tasks": [
+    {
+      "id": "ahc015_a",
+      "label": "A",
+      "title": "Halloween Candy",
+      "url": "https://atcoder.jp/contests/ahc015/tasks/ahc015_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.py"
+      }
+    }
+  ]
+}
