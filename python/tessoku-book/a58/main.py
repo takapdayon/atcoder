@@ -29,41 +29,18 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
-def update(segtree, n, pos, x):
-    cur = pos + n - 1
-    segtree[cur] = x
-    while True:
-        cur //= 2
-        if cur == 0:
-            break
-        segtree[cur] = max(segtree[cur * 2], segtree[cur * 2 + 1])
-
-def maximum(segtree, n, l, r):
-    l += n - 1
-    r += n - 1
-    max_v = 0
-    while l < r:
-        if l % 2 == 1:
-            max_v = max(max_v, segtree[l])
-            l += 1
-        l //= 2
-        if r % 2 == 1:
-            max_v = max(max_v, segtree[r - 1])
-            r -= 1
-        r //= 2
-    return max_v
+from atcoder.segtree import SegTree
 
 def main():
-    n, q = i_map()
-    queries = i_row_list(q)
-    segtree = [0] * (n * 2 + 1)
-
-    for query in queries:
-        if query[0] == 1:
-            update(segtree, n, query[1], query[2])
+    N, Q = i_map()
+    segtree = SegTree(max, 0, N)
+    for q in range(Q):
+        com, x, y = i_map()
+        if com == 1:
+            segtree.set(x - 1, y)
         else:
-            max_v = maximum(segtree, n, query[1], query[2])
-            print(max_v)
+            result = segtree.prod(x - 1, y - 1)
+            print(result)
 
 if __name__ == '__main__':
     main()

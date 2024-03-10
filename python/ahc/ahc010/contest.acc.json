@@ -1,0 +1,20 @@
+{
+  "contest": {
+    "id": "ahc010",
+    "title": "ALGO ARTIS Programming Contest 2022（AtCoder Heuristic Contest 010）",
+    "url": "https://atcoder.jp/contests/ahc010"
+  },
+  "tasks": [
+    {
+      "id": "ahc010_a",
+      "label": "A",
+      "title": "Loop Lines",
+      "url": "https://atcoder.jp/contests/ahc010/tasks/ahc010_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.py"
+      }
+    }
+  ]
+}

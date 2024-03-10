@@ -1,0 +1,367 @@
+// clang-format off
+// #include<iomanip>  // setprecision(c++20〜?)
+// #include<ranges>
+// #include<algorithm>
+#include<bits/stdc++.h>
+// #include<cmath>  // sqrt
+// #include<random>
+
+#define all(v) v.begin(), v.end()
+#define vout(v) for (auto i: v) {cout << i << " ";}
+#define mout(m) for (auto v: m) {vout(v); cout << endl; }
+#define db(x) cerr << #x << " = " << x << endl;
+// clang-format on
+
+using namespace std;
+
+using ll = long long;
+using ull = unsigned long long;
+using pii = pair<int, int>;
+
+struct Out {
+    void locate(pii p, pii q) {
+        cout << p.first << " " << p.second << " " 
+             << q.first << " " << q.second << endl;
+    }
+    // 1/0  U D L R .
+    void move(bool change, char takahashi, char aoki) {
+        cout << (change ? 1 : 0) << " "
+             << takahashi << " " << aoki << endl;
+    }
+
+};
+// 0以上UNINT_MAX以下の整数を高速に返す疑似乱数
+static uint32_t randXor() {
+    static uint32_t x = 123456789, y = 362436069, z = 521288629, w = 88675123;
+    uint32_t t;
+    t = x ^ (x << 11);
+    x = y;
+    y = z;
+    z = w;
+    return w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));
+}
+
+// l以上r以下の整数をとる疑似乱数
+static uint32_t rand_int_(int l, int r) { return l + randXor() % (r - l + 1); }
+
+// 0以上1以下の小数をとる疑似乱数
+static double rand01() { return (randXor()) * (1.0 / UINT_MAX); }
+
+// l以上r以下の小数をとる疑似乱数
+static double rand_double(double l, double r) { return l + (r - l) * rand01(); }
+
+int T, N;
+vector<vector<int>> M, MS, M2;  // m2は'.' = -1もはいってる
+
+int Node(int i, int j) { return i * N + j; }
+pii Node(int n) { 
+    int i = n / N;
+    int j = n - (i * N);
+    return make_pair(i, j);
+}
+
+struct Timer1 {
+    clock_t _start_us, _limit_us;
+    Timer1(const clock_t &limit_us) : _start_us(clock()), _limit_us(limit_us) {}
+    bool is_time_over() const { return _limit_us  <= (clock() - _start_us); }
+};
+
+
+struct Timer {
+    int _start_us, _limit_us, _max_turn, _prev_us;
+    Timer(int time_limit_us, int max_turn)
+        : _start_us(clock()), _limit_us(time_limit_us), _max_turn(max_turn) {
+        _prev_us = _start_us;
+    };
+    // 初回の利用までに時間経過してるときのために.
+    void update_prev_us() { _prev_us = clock(); }
+
+    // 今の回をまだ回せるか?
+    bool exceed_current_limit(int turn) {
+        int spent_time_last_turn = _prev_us - _start_us;
+        int remaining_us = _limit_us - spent_time_last_turn;
+        int remaining_turn = _max_turn - turn;
+        if (remaining_turn == 0) return false; // 最後は選択しない
+        int available_us = remaining_us / remaining_turn;
+
+        int current_us = clock();
+        bool tle = available_us < (current_us - _prev_us);
+        if (tle) _prev_us = current_us;
+        return tle;
+    }
+};
+
+           //  R  D  L  U
+vector<int> dh{0, 1, 0, -1};
+vector<int> dw{1, 0, -1, 0};
+int mv(char m) {
+    if (m == 'R') return 0;
+    else if (m == 'D') return 1;
+    else if (m == 'L') return 2;
+    else if (m == 'U') return 3;
+    else if (m == '.') return -1;
+    else return -100;
+}
+char mv(int m) {
+    if (m == 0) return 'R';
+    else if (m == 1) return 'D';
+    else if (m == 2) return 'L';
+    else if (m == 3) return 'U';
+    else if (m == -1) return '.';
+    else return '-';
+}
+char mv(pii c, pii nx) {
+    auto [h, w] = c;
+    auto [nh, nw] = nx;
+    int diff_h = nh - h;
+    int diff_w = nw - w;
+    if (diff_h == 0 && diff_w == 0) return '.';
+    else if (diff_h == 0) {
+        if (diff_w == 1) return 'R';
+        else if (diff_w == -1) return 'L';
+        else cerr << "エラー1" << endl;
+    }
+    else if (diff_w == 0) {
+        if (diff_h == 1) return 'D';
+        else if (diff_h == -1) return 'U';
+        else cerr << "エラー2" << endl;
+    }
+    cerr << "エラー3" << endl;
+    return '-';
+}
+
+struct Select {
+    bool ex;
+    char tk;
+    char ao;
+    Select(bool ex=false, char tk='.', char ao='.'): ex(ex), tk(tk), ao(ao){}
+};
+
+Timer1 timer{static_cast<clock_t>(1.95 * CLOCKS_PER_SEC)};
+
+
+struct State {
+    vector<int> _state;
+    int _tk, _ao;
+    vector<Select> _history;     
+    long _cost;
+    State(vector<int> &st, int tk=0, int ao=0) : 
+        _state(st), _tk(tk), _ao(ao), _cost(0) {
+            _history.push_back(Select{});
+        };
+
+    // コスト再計算する
+    ll cost() { 
+        long s = 0;
+        for (int i=0;i<N;i++) {
+            for (int j=0;j<N;j++) {
+                if (j < N-1) {
+                    long tmp = _state[Node(i, j)] - _state[Node(i, j+1)];
+                    s += tmp * tmp;
+                }
+                if (i < N-1) {
+                    long tmp = _state[Node(i, j)] - _state[Node(i+1, j)];
+                    s += tmp * tmp;
+                }
+            } 
+        }
+        _cost = s;
+        return _cost;
+    };
+
+    ll calc_around_cost(int n) {
+        long res = 0;
+        long c_cost = _state[n];
+        for (int nx: M[n]) {
+            res += (c_cost - _state[nx]) * (c_cost - _state[nx]);     
+        }
+        return res;
+    }
+
+    // stateの更新: 移動してから交換する と読み替える.
+    // 初期配置を移動とみればあう.
+    void up_move(int nx_tk, int nx_ao) { // 座標でくる.
+        char t='.';
+        char a='.';
+        if (nx_tk != -1) {
+            t = mv(Node(_tk), Node(nx_tk));
+            _tk = nx_tk;
+        }
+        if (nx_ao != -1) {
+            a = mv(Node(_ao), Node(nx_ao));
+            _ao = nx_ao;
+        }
+        _rec_move(t, a);
+    }
+    void _rec_move(char tk, char ao) {
+        _history.back().tk = tk;
+        _history.back().ao = ao;
+    }
+    ll diff(int new_tk, int new_ao) {
+        long bef = calc_around_cost(new_tk) + calc_around_cost(new_ao);
+        swap(_state[new_tk], _state[new_ao]);
+        long aft = calc_around_cost(new_tk) + calc_around_cost(new_ao);
+        swap(_state[new_tk], _state[new_ao]);
+        return aft - bef;
+    }
+    void up_change(bool b) {
+        _rec_change(b);
+        if (!b) return;
+        long bef = calc_around_cost(_tk) + calc_around_cost(_ao);
+        swap(_state[_tk], _state[_ao]);
+        long aft = calc_around_cost(_tk) + calc_around_cost(_ao);
+        _cost -= bef;
+        _cost += aft;
+    }
+    void _rec_change(bool b) { _history.push_back({b, '.', '.'}); }
+
+    // 盤面出力(デバッグ用)
+    void print() { return; }
+};
+
+vector<bool> tf{true, false};
+
+bool operator<(const State &state1, const State &state2) {
+    return state1._cost > state2._cost;
+}
+
+long cnt = 0;
+
+State beam_search(const State &state, const int beam_width) {
+    priority_queue<State> now_beam;
+    State best_state = state;
+    
+    now_beam.emplace(state);
+    for (int t=1;; t++ ) {
+        // db(t);
+        // cerr << now_beam.size() << endl;
+
+        if (timer.is_time_over()) {
+            return now_beam.top();
+        };
+
+
+        priority_queue<State> next_beam;
+        for (int i=0;i<beam_width; i++) {
+
+            if (now_beam.empty()) break;
+            State now_state = now_beam.top();
+            int c_tk = now_state._tk;
+            int c_ao = now_state._ao;
+             
+            for (int nx_tk: M2[c_tk]) {
+                for (int nx_ao: M2[c_ao]) {
+                    for (bool f  : tf) {
+                        cnt++;
+                        State next_state = now_state;
+                        next_state.up_move(nx_tk, nx_ao);
+                        next_state.up_change(f);
+                        next_beam.push(next_state);
+                    }        
+                }
+            }
+
+            if (timer.is_time_over()) break;
+        }
+        now_beam = next_beam;
+        if (now_beam.empty()) cerr << "だめだろ！" << endl;
+        best_state = now_beam.top();
+        if (4L * N * N <= t-1 || timer.is_time_over()) {
+            return best_state;
+        }
+    }
+}
+
+
+
+
+int main() {
+    cin>>T>>N;
+    vector<vector<char>> v(N, vector<char>(N-1));
+    vector<vector<char>> h(N-1, vector<char>(N));
+    vector<vector<int>> a(N, vector<int>(N));
+    for (int i=0;i<N;i++) for (int j=0;j<N-1;j++)cin>>v[i][j];
+    for (int i=0;i<N-1;i++) for (int j=0;j<N;j++)cin>>h[i][j];
+    for (int i=0;i<N;i++) for (int j=0;j<N;j++)cin>>a[i][j];
+
+    // 移動可能なノードを事前列挙する.
+    M = vector<vector<int>>(N*N, vector<int>());
+    MS = vector<vector<int>>(N*N, vector<int>());
+    M2 = vector<vector<int>>(N*N, vector<int>());
+
+    for (int i=0;i<N;i++) for (int j=0;j<N;j++) {
+        if (j < N-1 && v[i][j] == '0') {
+            M[Node(i, j)].emplace_back(Node(i, j + 1));
+            M[Node(i, j + 1)].emplace_back(Node(i, j));
+            M2[Node(i, j)].emplace_back(Node(i, j + 1));
+            M2[Node(i, j + 1)].emplace_back(Node(i, j));
+            MS[Node(i, j)].emplace_back(Node(i, j + 1));
+        }
+        if (i < N-1 && h[i][j] == '0') {
+            M[Node(i, j)].emplace_back(Node(i + 1, j));
+            M[Node(i + 1, j)].emplace_back(Node(i, j));
+            M2[Node(i, j)].emplace_back(Node(i + 1, j));
+            M2[Node(i + 1, j)].emplace_back(Node(i, j));
+            MS[Node(i, j)].emplace_back(Node(i + 1, j));
+        }
+    }
+    for (int i=0;i<N;i++) for (int j=0;j<N;j++) {
+        M2[Node(i, j)].push_back(-1);  // '.' です
+    }
+
+
+    // TODO 0  0 の位置を焼く...?? or 山登り...?
+    vector<int> st(N*N);
+    State best{st, 0, 0};
+    best._cost = 0;
+    pii tk={0,0};
+    pii ao={N-1,N-1};
+
+
+    for (int ti = 0; ti < N*N; ti += 5) {
+        for (int ai = N*N-1;0 <=ai; ai-= 5) {
+            if (timer.is_time_over()) break;
+            vector<int> st(N*N);
+            for (int i=0;i<N;i++)for (int j=0;j<N;j++) st[Node(i, j)] = a[i][j];
+            // int ti=0;
+            // int ai=N*N-1;
+            pii tk_tmp = Node(ti);
+            pii ao_tmp = Node(ai);
+            State state = State( st, ti, ai );
+
+            State best_tmp = beam_search(state, 501 / N);
+            // db(best_tmp._cost);
+            // db(ti); 
+            // db(ai);
+            cerr << endl;
+            if (best_tmp._cost < best._cost) {
+                // if (ti == 0 && ai ==0) {
+                    // db(best_tmp._cost);
+                    // db(best._cost);
+                // }
+                best = best_tmp;
+                tk = tk_tmp;
+                ao = ao_tmp;
+            }
+            // if (T == 0){
+            //     ti = N*N;
+            //     break;
+            // }
+        }
+     }
+    // db(best._cost);
+    // db(best._history.size());
+    // db(Node(tk.first, tk.second));
+    // db(Node(ao.first, ao.second));
+
+
+    Out o;
+    o.locate(tk, ao);
+    int cnti = 0;
+    for (Select x: best._history) {
+        cnti++;
+        if (4 * N * N <= cnti) break;
+        o.move(x.ex, x.tk, x.ao);
+    }
+    // db(cnt);
+}

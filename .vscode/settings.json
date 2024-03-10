@@ -2,4 +2,5 @@
   "rust-analyzer.linkedProjects": [
     ".\\rust\\tessoku-book\\Cargo.toml"
   ],
+  "python.analysis.autoImportCompletions": true,
 }

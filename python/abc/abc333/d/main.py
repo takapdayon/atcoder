@@ -29,12 +29,45 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
+def dfs(node, graph, visited):
+    visited[node] = True
+    count = 0
+    for to in graph[node]:
+        if not visited[to]:
+            count += dfs(to, graph, visited)
+    return count + 1
+
 def main():
-    pass
+    n = i_input()
+    graph = defaultdict(set)
+    for i in range(n - 1):
+        u, v = i_map()
+        graph[u].add(v)
+        graph[v].add(u)
+    '''
+    ノードの下何個で削除できるのかDFSで掘って、一番大きいもののみ残す
+    '''
+    visited = [False] * (n + 1)
+    visited[1] = True
+
+    result = 0
+    max_res = 0
+
+    for to in graph[1]:
+        cost = dfs(to, graph, visited)
+        result += cost
+        max_res = max(max_res, cost)
+
+    print(result + 1 - max_res)
 
 if __name__ == '__main__':
     main()
 
-# テスト: oj t -c 'poetry run python main.py'
-# 提出: acc s main.py -- --guess-python-interpreter pypy
-# 再帰あるとき:  acc s main.py -- --guess-python-interpreter cpython --language 5055
+'''
+テスト: oj t -c 'poetry run python main.py'
+提出: acc s main.py -- --guess-python-interpreter pypy
+再帰あるとき:  acc s main.py -- --guess-python-interpreter cpython --language 5055
+又は
+import pypyjit
+pypyjit.set_param('max_unroll_recursion=-1')
+'''

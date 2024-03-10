@@ -1,6 +1,6 @@
 import sys, re
 import random
-from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
+from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees, exp
 from copy import deepcopy
 from collections import Counter, deque, defaultdict
 from heapq import heapify, heappop, heappush
@@ -30,13 +30,22 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
+import time
+
 def dist(x1, y1, x2, y2):
     return sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
+
+def get_score(n, xyrows, c):
+    score = 0
+    for i in range(n - 1):
+        score += dist(xyrows[c[i]][0], xyrows[c[i]][1], xyrows[c[i + 1]][0], xyrows[c[i + 1]][1])
+    score += dist(xyrows[c[0]][0], xyrows[c[0]][1], xyrows[c[-1]][0], xyrows[c[-1]][1])
+    return score
 
 def greedy(n, xyrows):
     visited = [False] * n
     visited[0] = True
-    ans = [1]
+    ans = [0]
     pos = 0
 
     for _ in range(n):
@@ -50,25 +59,19 @@ def greedy(n, xyrows):
                 to = i
         if to != -1:
             visited[to] = True
-            ans.append(to + 1)
+            ans.append(to)
             pos = to
-    ans.append(1)
-    for a in ans:
-        print(a)
-
-def get_score(n, xyrows, c):
-    score = 0
-    for i in range(n - 1):
-        score += dist(xyrows[c[i]][0], xyrows[c[i]][1], xyrows[c[i + 1]][0], xyrows[c[i + 1]][1])
-    score += dist(xyrows[c[0]][0], xyrows[c[0]][1], xyrows[c[-1]][0], xyrows[c[-1]][1])
-    return score
+    ans.append(0)
+    # for a in ans:
+    #     print(a)
+    return ans
 
 def local_search(n, xyrows):
     # そもそもの初期配列も何度か試そう
+    time_keeper = TimeKeeper(950)
     ans = [ i % n for i in range(n + 1)]
     score = get_score(n, xyrows, ans)
-    loops = (10 ** 4) * 4
-    for _ in range(loops):
+    while not time_keeper.is_time_over():
         le = random.randint(1, n - 1)
         ri = random.randint(le, n - 1)
         ans[le:ri + 1] = reversed(ans[le:ri + 1])
@@ -80,10 +83,68 @@ def local_search(n, xyrows):
     for a in ans:
         print(a + 1)
 
+class TimeKeeper:
+    def __init__(self, time_threshold) -> None:
+        self.time_threshold = time_threshold
+        self.start_time = time.time()
+        self.before_time = self.start_time
+
+    def now_time(self):
+        return time.time()
+
+    def set_time(self):
+        self.before_time = time.time()
+
+    def is_time_over(self):
+        now = time.time()
+        diff = now - self.start_time
+        return (diff * 1000) >= self.time_threshold
+
+class TempManager:
+    def __init__(self, start_temp = 50, end_temp = 10) -> None:
+        self.start_temp = start_temp
+        self.end_temp = end_temp
+
+    def temp(self, tk):
+        return self.start_temp + (self.end_temp - self.start_temp) * ((tk.now_time() - tk.start_time) * 1000) / tk.time_threshold
+
+    def probability(self, new, pre, temp):
+        return exp((new - pre) / temp)
+
+    def should_change(self, probability):
+        return random.random() < probability
+
+def sa(n, xyrows):
+    time_keeper = TimeKeeper(950)
+    # 適用する温度?この範囲でジャンプする
+    temp_manager = TempManager(30, 2)
+
+    # ans = [ i % n for i in range(n + 1)]
+    ans = greedy(n, xyrows)
+    score = get_score(n, xyrows, ans)
+
+    while not time_keeper.is_time_over():
+        le = random.randint(1, n - 1)
+        ri = random.randint(le, n - 1)
+        ans[le:ri + 1] = reversed(ans[le:ri + 1])
+
+        new_score = get_score(n, xyrows, ans)
+
+        temp = temp_manager.temp(time_keeper)
+        probability = temp_manager.probability(-new_score, -score, temp)
+
+        if temp_manager.should_change(probability):
+            score = new_score
+        else:
+            ans[le:ri + 1] = reversed(ans[le:ri + 1])
+
+    for a in ans:
+        print(a + 1)
+
 def main():
     n = i_input()
     xyrows = i_row_list(n)
-    local_search(n, xyrows)
+    sa(n, xyrows)
 
 if __name__ == '__main__':
     main()

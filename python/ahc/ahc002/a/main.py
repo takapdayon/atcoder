@@ -41,6 +41,9 @@ TO_H = [-1, 1, 0, 0]
 TO_W = [0, 0, -1, 1]
 
 import time
+import random
+import math
+random.seed(1)
 
 class TimeKeeper:
     def __init__(self, time_threshold) -> None:
@@ -56,6 +59,43 @@ class TimeKeeper:
         now = time.time()
         whole_diff = (now * 1000) - (self.start_time * 1000)
         return whole_diff >= self.time_threshold
+
+class TempManager:
+    def __init__(self, start_temp = 50, end_temp = 10) -> None:
+        self.start_temp = start_temp
+        self.end_temp = end_temp
+
+    def temp(self, tk):
+        return self.start_temp + (self.end_temp - self.start_temp) * ((tk.now_time() - tk.start_time) * 1000) / tk.time_threshold
+
+    def probability(self, new, pre, temp):
+        return math.exp((new - pre) / temp)
+
+    def should_change(self, probability):
+        return random.random() < probability
+
+class State:
+    def __init__(self, initial, visited) -> None:
+        # 初期解
+        self.state = initial
+        self.visited = visited
+
+    @classmethod
+    def copy(cls):
+        # 遷移関数
+        pass
+
+    def part_score(self, left, right):
+        # left~rightの間のスコアを取得
+        pass
+
+    def get_score(self):
+        # 自身のトータルスコア
+        pass
+
+    def part_dfs(self):
+        # 一部分のdfs
+        pass
 
 def dfs(pos, visited, points, pairs):
     '''
@@ -103,8 +143,14 @@ def main():
     visited = [False] * (N ** 2 - 1)
 
     paths, score = dfs((si, sj), visited, points, pairs)
+    state = State()
     while time_keeper.is_time_over():
         # 時間切れになるまでlocal searchをする
+        new_state = State.copy(state)
+        left = 1
+        right = 1
+        score = new_state.part_dfs(left, right)
+        if score > state.part_score(left, right)
         new_paths, new_score = local_search()
         if score < new_score:
             paths = new_paths
