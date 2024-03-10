@@ -20,7 +20,7 @@ def s_map(): return input().split()
 def s_list(): return list(s_map())
 def s_row(N): return [s_input() for _ in range(N)]
 def s_row_str(N): return [s_list() for _ in range(N)]
-def s_row_list(N): return [s_list() for _ in range(N)]
+def s_row_list(N): return [list(s_input()) for _ in range(N)]
 
 sys.setrecursionlimit(10 ** 6)
 
@@ -30,25 +30,30 @@ num_list = []
 str_list = []
 
 def main():
-    n = i_input()
-    result = 0
-    manage = [1, 1, 1]
-    count = 1
-    while count < n:
-        if manage[1] != manage[2]:
-            manage[2] += 1
-        elif manage[0] != manage[1]:
-            manage[1] += 1
-            manage[2] = 1
-        else:
-            manage[0] += 1
-            manage[1] = 1
-            manage[2] = 1
-        count += 1
+    n, m = i_map()
+    graph = defaultdict(set)
+    deg = [0] * (n + 1)
+    for i in range(m):
+        x, y = i_map()
+        graph[x].add(y)
+        deg[y] += 1
 
-    for m in manage:
-        result += int('1' * m)
-    print(result)
+    dp = [0] * (n + 1)
+
+    queue = deque()
+    for i in range(1, n + 1):
+        if deg[i] == 0:
+            queue.append(i)
+
+    while queue:
+        now = queue.popleft()
+        for to in graph[now]:
+            deg[to] -= 1
+            if deg[to] == 0:
+                queue.append(to)
+                dp[to] = max(dp[to], dp[now] + 1)
+
+    print(max(dp))
 
 if __name__ == '__main__':
     main()
