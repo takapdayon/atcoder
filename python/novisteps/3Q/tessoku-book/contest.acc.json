@@ -80,7 +80,12 @@
       "id": "tessoku_book_l",
       "label": "A12",
       "title": "Printer",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_l"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_l",
+      "directory": {
+        "path": "a12",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_m",
