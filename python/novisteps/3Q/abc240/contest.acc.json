@@ -9,7 +9,12 @@
       "id": "abc240_a",
       "label": "A",
       "title": "Edge Checker",
-      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_a"
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc240_b",
@@ -32,7 +37,12 @@
       "id": "abc240_d",
       "label": "D",
       "title": "Strange Balls",
-      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_d"
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc240_e",

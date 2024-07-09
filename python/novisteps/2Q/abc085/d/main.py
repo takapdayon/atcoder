@@ -30,7 +30,33 @@ num_list = []
 str_list = []
 
 def main():
-    pass
+    N, H = i_map()
+    An = [0] * (N + 1)
+    Bn = [0] * (N + 1)
+
+    for i in range(N):
+        a, b = i_map()
+        An[i] = a
+        Bn[i] = b
+
+    An.sort()
+    Bn.sort()
+
+    result = 0
+
+    while H > 0:
+        b = 0
+        if len(Bn) != 0:
+            b = Bn.pop()
+        if b > An[-1]:
+            H -= b
+        else:
+            # 個々の時点でもうメラゾーマを打ち続けるしかないから繰り上げで割ればいい
+            result += -(-H // An[-1])
+            break
+        result += 1
+
+    print(result)
 
 if __name__ == '__main__':
     main()

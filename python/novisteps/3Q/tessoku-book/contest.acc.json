@@ -91,7 +91,12 @@
       "id": "tessoku_book_m",
       "label": "A13",
       "title": "Close Pairs",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_m"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_m",
+      "directory": {
+        "path": "a13",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_n",
@@ -145,7 +150,12 @@
       "id": "tessoku_book_v",
       "label": "A22",
       "title": "Sugoroku",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_v"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_v",
+      "directory": {
+        "path": "a22",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_w",
@@ -163,7 +173,12 @@
       "id": "tessoku_book_y",
       "label": "A25",
       "title": "Number of Routes",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_y"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_y",
+      "directory": {
+        "path": "a25",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_z",
@@ -607,7 +622,12 @@
       "id": "tessoku_book_db",
       "label": "B29",
       "title": "Power Hard",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_db"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_db",
+      "directory": {
+        "path": "b29",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dc",
