@@ -57,7 +57,12 @@
       "id": "math_and_algorithm_i",
       "label": "009",
       "title": "Brute Force 2",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_i"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_i",
+      "directory": {
+        "path": "009",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_j",
@@ -111,7 +116,12 @@
       "id": "math_and_algorithm_r",
       "label": "018",
       "title": "Convenience Store 1",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_r"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_r",
+      "directory": {
+        "path": "018",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_s",
@@ -135,7 +145,12 @@
       "id": "math_and_algorithm_v",
       "label": "022",
       "title": "Choose Cards 3",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_v"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_v",
+      "directory": {
+        "path": "022",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_w",
@@ -257,7 +272,12 @@
       "id": "math_and_algorithm_aj",
       "label": "039",
       "title": "Snowy Days",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aj"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aj",
+      "directory": {
+        "path": "039",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_ak",
@@ -286,13 +306,23 @@
       "id": "math_and_algorithm_am",
       "label": "043",
       "title": "Depth First Search",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_am"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_am",
+      "directory": {
+        "path": "043",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_an",
       "label": "044",
       "title": "Shortest Path 1",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_an"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_an",
+      "directory": {
+        "path": "044",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "typical90_bz",
@@ -328,7 +358,12 @@
       "id": "math_and_algorithm_aq",
       "label": "050",
       "title": "Power",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aq"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aq",
+      "directory": {
+        "path": "050",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_ar",
@@ -406,7 +441,12 @@
       "id": "math_and_algorithm_bb",
       "label": "063",
       "title": "Move on Squares 2",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bb"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bb",
+      "directory": {
+        "path": "063",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_bc",
