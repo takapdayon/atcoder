@@ -200,7 +200,12 @@
       "id": "math_and_algorithm_aa",
       "label": "027",
       "title": "Sorting",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aa"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aa",
+      "directory": {
+        "path": "027",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "dp_a",
@@ -224,7 +229,12 @@
       "id": "math_and_algorithm_ac",
       "label": "031",
       "title": "Taro's Vacation",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ac"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ac",
+      "directory": {
+        "path": "031",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_ad",
@@ -236,7 +246,12 @@
       "id": "math_and_algorithm_ae",
       "label": "033",
       "title": "Distance",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ae"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ae",
+      "directory": {
+        "path": "033",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_af",
@@ -260,7 +275,12 @@
       "id": "math_and_algorithm_ah",
       "label": "037",
       "title": "Intersection",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ah"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ah",
+      "directory": {
+        "path": "037",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "math_and_algorithm_ai",
