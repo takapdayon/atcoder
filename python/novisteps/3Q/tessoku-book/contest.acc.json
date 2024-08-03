@@ -108,7 +108,12 @@
       "id": "tessoku_book_o",
       "label": "A15",
       "title": "Compression",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_o"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_o",
+      "directory": {
+        "path": "a15",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_p",
@@ -120,7 +125,12 @@
       "id": "tessoku_book_q",
       "label": "A17",
       "title": "Dungeon 2",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_q"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_q",
+      "directory": {
+        "path": "a17",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_r",

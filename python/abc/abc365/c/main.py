@@ -29,20 +29,32 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
+def check(mid, M, AN):
+    _sum = 0
+    for a in AN:
+        _sum += min(mid, a)
+    return _sum > M
+
 def main():
-    N, K = i_map()
+    N, M = i_map()
     AN = i_list()
-    AN.sort()
 
-    result = 0
-    current = 0
+    if sum(AN) <= M:
+        print('infinite')
+        return
 
-    for i, a in enumerate(AN):
-        while current != N - 1 and AN[current + 1] - a <= K:
-            current += 1
-        result += current - i
+    ng = 0
+    ok = M
 
-    print(result)
+    while abs(ng - ok) > 1:
+        mid = (ng + ok) // 2
+        if check(mid, M, AN):
+            ok = mid
+        else:
+            ng = mid
+
+    print(ng)
+
 
 if __name__ == '__main__':
     main()

@@ -30,19 +30,7 @@ num_list = []
 str_list = []
 
 def main():
-    N, K = i_map()
-    AN = i_list()
-    AN.sort()
-
-    result = 0
-    current = 0
-
-    for i, a in enumerate(AN):
-        while current != N - 1 and AN[current + 1] - a <= K:
-            current += 1
-        result += current - i
-
-    print(result)
+    pass
 
 if __name__ == '__main__':
     main()

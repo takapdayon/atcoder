@@ -30,19 +30,30 @@ num_list = []
 str_list = []
 
 def main():
-    N, K = i_map()
+    N = i_input()
     AN = i_list()
-    AN.sort()
+    BN = i_list()
 
-    result = 0
-    current = 0
+    dp = [10 ** 9] * N
+    dp[1] = AN[0]
 
-    for i, a in enumerate(AN):
-        while current != N - 1 and AN[current + 1] - a <= K:
-            current += 1
-        result += current - i
+    for i, (a, b) in enumerate(zip(AN[1:], BN), 2):
+        dp[i] = min(dp[i - 1] + a, dp[i - 2] + b)
 
-    print(result)
+    current = N
+    results = [current]
+    while current:
+        if dp[current - 2] + AN[current - 2] == dp[current - 1]:
+            current -= 1
+        else:
+            current -= 2
+        if current == 0:
+            results.append(1)
+        else:
+            results.append(current)
+
+    print(len(results))
+    print(*reversed(results))
 
 if __name__ == '__main__':
     main()

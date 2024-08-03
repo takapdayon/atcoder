@@ -30,19 +30,32 @@ num_list = []
 str_list = []
 
 def main():
-    N, K = i_map()
-    AN = i_list()
-    AN.sort()
+    N = i_input()
+    S = s_input()
+    '''
+    [R, P, S]
+    '''
+    dp = [[0, 0, 0] for _ in range(N + 1)]
 
-    result = 0
-    current = 0
+    '''
+    現在までの最適な手
+    '''
 
-    for i, a in enumerate(AN):
-        while current != N - 1 and AN[current + 1] - a <= K:
-            current += 1
-        result += current - i
+    for i, s in enumerate(S, 1):
+        if s == 'R':
+            dp[i][0] = max(dp[i - 1][1], dp[i - 1][2])
+            dp[i][1] = max(dp[i - 1][0], dp[i - 1][2]) + 1
+            dp[i][2] = dp[i - 1][2]
+        elif s == 'P':
+            dp[i][0] = dp[i - 1][0]
+            dp[i][1] = max(dp[i - 1][0], dp[i - 1][2])
+            dp[i][2] = max(dp[i - 1][0], dp[i - 1][1]) + 1
+        else:
+            dp[i][0] = max(dp[i - 1][1], dp[i - 1][2]) + 1
+            dp[i][1] = dp[i - 1][1]
+            dp[i][2] = max(dp[i - 1][0], dp[i - 1][1])
 
-    print(result)
+    print(max(dp[-1]))
 
 if __name__ == '__main__':
     main()

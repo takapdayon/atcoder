@@ -30,19 +30,14 @@ num_list = []
 str_list = []
 
 def main():
-    N, K = i_map()
+    N = i_input()
     AN = i_list()
-    AN.sort()
+    di = {}
+    for i, a in enumerate(AN, 1):
+        di[a] = i
 
-    result = 0
-    current = 0
-
-    for i, a in enumerate(AN):
-        while current != N - 1 and AN[current + 1] - a <= K:
-            current += 1
-        result += current - i
-
-    print(result)
+    AN.sort(reverse=True)
+    print(di[AN[1]])
 
 if __name__ == '__main__':
     main()
