@@ -30,7 +30,19 @@ num_list = []
 str_list = []
 
 def main():
-    pass
+    N, S = i_map()
+    AN = i_list()
+
+    dp = [[False] * (S + 1) for _ in range(N + 1)]
+    dp[0][0] = True
+
+    for h in range(1, N + 1):
+        for w in range(S + 1):
+            if AN[h - 1] > w:
+                dp[h][w] = dp[h - 1][w]
+            else:
+                dp[h][w] = dp[h - 1][w] or dp[h - 1][w - AN[h - 1]]
+    print(dp[-1][-1] and 'Yes' or 'No')
 
 if __name__ == '__main__':
     main()

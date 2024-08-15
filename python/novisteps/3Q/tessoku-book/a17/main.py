@@ -35,22 +35,22 @@ def main():
     BN = i_list()
 
     dp = [10 ** 9] * N
+    dp[0] = 0
     dp[1] = AN[0]
 
     for i, (a, b) in enumerate(zip(AN[1:], BN), 2):
         dp[i] = min(dp[i - 1] + a, dp[i - 2] + b)
 
-    current = N
-    results = [current]
-    while current:
-        if dp[current - 2] + AN[current - 2] == dp[current - 1]:
+    current = N - 1
+    results = []
+    while True:
+        results.append(current + 1)
+        if current == 0:
+            break
+        if dp[current - 1] + AN[current - 1] == dp[current]:
             current -= 1
         else:
             current -= 2
-        if current == 0:
-            results.append(1)
-        else:
-            results.append(current)
 
     print(len(results))
     print(*reversed(results))

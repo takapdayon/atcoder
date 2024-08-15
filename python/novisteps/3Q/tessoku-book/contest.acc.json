@@ -558,7 +558,12 @@
       "id": "tessoku_book_ck",
       "label": "B12",
       "title": "Equation",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ck"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ck",
+      "directory": {
+        "path": "b12",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_cl",
@@ -582,7 +587,12 @@
       "id": "tessoku_book_cp",
       "label": "B17",
       "title": "Frog 1 with Restoration",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cp"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cp",
+      "directory": {
+        "path": "b17",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_cq",

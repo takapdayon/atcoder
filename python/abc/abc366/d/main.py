@@ -1,0 +1,62 @@
+import sys, re
+from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
+from copy import deepcopy
+from collections import Counter, deque, defaultdict
+from heapq import heapify, heappop, heappush
+from itertools import accumulate, product, combinations, combinations_with_replacement, permutations
+from bisect import bisect, bisect_left, bisect_right
+from functools import reduce, cache
+from decimal import Decimal, getcontext
+from sortedcontainers import SortedSet, SortedList, SortedDict
+
+# input = sys.stdin.readline
+def i_input(): return int(input())
+def i_map(): return map(int, input().split())
+def i_list(): return list(i_map())
+def i_row(N): return [i_input() for _ in range(N)]
+def i_row_list(N): return [i_list() for _ in range(N)]
+def s_input(): return input()
+def s_map(): return input().split()
+def s_list(): return list(s_map())
+def s_row(N): return [s_input() for _ in range(N)]
+def s_row_str(N): return [s_list() for _ in range(N)]
+def s_row_list(N): return [list(s_input()) for _ in range(N)]
+
+sys.setrecursionlimit(10 ** 6)
+
+INF = float('inf')
+MOD = 10 ** 9 + 7
+num_list = []
+str_list = []
+
+def main():
+    N = i_input()
+    ANN = i_row_list(N ** 2)
+    Q = i_input()
+    LRQ = i_row_list(Q)
+
+    box_sum = [[[0] * (N + 1) for _ in range(N + 1)] for _ in range(N + 1)]
+
+    for z in range(1, N + 1):
+        for h in range(1, N + 1):
+            for w in range(1, N + 1):
+                box_sum[z][h][w] = box_sum[z][h][w - 1] + ANN[(N * (z - 1)) + h - 1][w - 1]
+
+    for z in range(1, N + 1):
+        for h in range(1, N + 1):
+            for w in range(1, N + 1):
+                box_sum[z][h][w] += box_sum[z][h - 1][w]
+
+    for query in LRQ:
+        L1, R1, L2, R2, L3, R3 = query
+        _sum = 0
+        for i in range(L1, R1 + 1):
+            _sum += box_sum[i][R2][R3] - box_sum[i][R2][L3 - 1] - box_sum[i][L2 - 1][R3] + box_sum[i][L2 - 1][L3 - 1]
+        print(_sum)
+
+if __name__ == '__main__':
+    main()
+
+# テスト: oj t -c 'poetry run python main.py'
+# 提出: acc s main.py -- --guess-python-interpreter pypy
+# 再帰あるとき:  acc s main.py -- --guess-python-interpreter cpython --language 5055
