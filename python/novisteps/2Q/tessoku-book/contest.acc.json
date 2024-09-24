@@ -536,7 +536,12 @@
       "id": "tessoku_book_ch",
       "label": "B09",
       "title": "Papers",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ch"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ch",
+      "directory": {
+        "path": "b09",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_cj",
@@ -578,13 +583,23 @@
       "id": "tessoku_book_cq",
       "label": "B18",
       "title": "Subset Sum with Restoration",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cq"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cq",
+      "directory": {
+        "path": "b18",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_cr",
       "label": "B19",
       "title": "Knapsack 2",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cr"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cr",
+      "directory": {
+        "path": "b19",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_cs",
@@ -638,7 +653,12 @@
       "id": "tessoku_book_dc",
       "label": "B30",
       "title": "Combination 2",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dc"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dc",
+      "directory": {
+        "path": "b30",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dd",

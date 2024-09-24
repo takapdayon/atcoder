@@ -569,7 +569,12 @@
       "id": "tessoku_book_cl",
       "label": "B13",
       "title": "Supermarket 2",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cl"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cl",
+      "directory": {
+        "path": "b13",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_cm",
