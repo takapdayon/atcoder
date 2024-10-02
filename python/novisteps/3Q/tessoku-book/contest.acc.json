@@ -294,7 +294,12 @@
       "id": "tessoku_book_ao",
       "label": "A41",
       "title": "Tile Coloring",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ao"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ao",
+      "directory": {
+        "path": "a41",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ap",
@@ -306,7 +311,12 @@
       "id": "tessoku_book_aq",
       "label": "A43",
       "title": "Travel 3",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aq"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aq",
+      "directory": {
+        "path": "a43",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ar",
@@ -366,7 +376,12 @@
       "id": "tessoku_book_bc",
       "label": "A55",
       "title": "Set",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bc"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bc",
+      "directory": {
+        "path": "a55",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_bd",
@@ -432,7 +447,12 @@
       "id": "tessoku_book_bn",
       "label": "A66",
       "title": "Connect Query",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bn"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bn",
+      "directory": {
+        "path": "a66",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_bo",
