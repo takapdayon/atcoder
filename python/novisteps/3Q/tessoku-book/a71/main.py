@@ -1,3 +1,4 @@
+
 import sys, re
 from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
 from copy import deepcopy
@@ -29,18 +30,18 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
-from atcoder.dsu import DSU
-
 def main():
-    N, Q = map(int, input().split())
-    uf = DSU(N + 1)
-    for i in range(Q):
-        query = list(map(int, input().split()))
-        if query[0] == 1:
-            uf.merge(query[1], query[2])
-        else:
-            print(uf.same(query[1], query[2]) and 'Yes' or 'No')
+    N = int(input())
+    AN = list(map(int, input().split()))
+    BN = list(map(int, input().split()))
+    AN.sort()
+    BN.sort(reverse=True)
 
+    result = 0
+    for a, b in zip(AN, BN):
+        result += a * b
+
+    print(result)
 
 if __name__ == '__main__':
     main()

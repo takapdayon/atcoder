@@ -29,18 +29,17 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
-from atcoder.dsu import DSU
+from itertools import zip_longest
 
 def main():
-    N, Q = map(int, input().split())
-    uf = DSU(N + 1)
-    for i in range(Q):
-        query = list(map(int, input().split()))
-        if query[0] == 1:
-            uf.merge(query[1], query[2])
-        else:
-            print(uf.same(query[1], query[2]) and 'Yes' or 'No')
+    S = s_input()
+    T = s_input()
 
+    for i, (s, t) in enumerate(zip_longest(S, T), 1):
+        if s != t:
+            print(i)
+            return
+    print(0)
 
 if __name__ == '__main__':
     main()

@@ -29,18 +29,11 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
-from atcoder.dsu import DSU
-
 def main():
-    N, Q = map(int, input().split())
-    uf = DSU(N + 1)
-    for i in range(Q):
-        query = list(map(int, input().split()))
-        if query[0] == 1:
-            uf.merge(query[1], query[2])
-        else:
-            print(uf.same(query[1], query[2]) and 'Yes' or 'No')
-
+    N = int(input())
+    AN = list(map(int, input().split()))
+    range_n = list(range(N))
+    hundred = [0] * 101
 
 if __name__ == '__main__':
     main()

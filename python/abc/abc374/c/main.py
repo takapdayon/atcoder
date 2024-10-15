@@ -29,17 +29,22 @@ MOD = 10 ** 9 + 7
 num_list = []
 str_list = []
 
-from atcoder.dsu import DSU
-
 def main():
-    N, Q = map(int, input().split())
-    uf = DSU(N + 1)
-    for i in range(Q):
-        query = list(map(int, input().split()))
-        if query[0] == 1:
-            uf.merge(query[1], query[2])
-        else:
-            print(uf.same(query[1], query[2]) and 'Yes' or 'No')
+    N = i_input()
+    KN = i_list()
+
+    result = 10 ** 19
+    _sum = sum(KN)
+    for case in product([True, False], repeat=N):
+        _c_sum = 0
+        for i, c in enumerate(case):
+            if not c:
+                continue
+            _c_sum += KN[i]
+
+        result = min(result, max(_c_sum, _sum - _c_sum))
+
+    print(result)
 
 
 if __name__ == '__main__':

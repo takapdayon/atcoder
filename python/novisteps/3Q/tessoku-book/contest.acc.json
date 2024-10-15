@@ -482,7 +482,12 @@
       "id": "tessoku_book_bs",
       "label": "A71",
       "title": "Homework",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bs"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bs",
+      "directory": {
+        "path": "a71",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_bt",
@@ -742,7 +747,12 @@
       "id": "tessoku_book_dm",
       "label": "B40",
       "title": "Divide by 100",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dm"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dm",
+      "directory": {
+        "path": "b40",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_dn",
@@ -904,7 +914,12 @@
       "id": "tessoku_book_fc",
       "label": "C05",
       "title": "Lucky Numbers",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fc"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fc",
+      "directory": {
+        "path": "c05",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_fd",
@@ -916,7 +931,12 @@
       "id": "tessoku_book_fe",
       "label": "C07",
       "title": "ALGO-MARKET",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fe"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fe",
+      "directory": {
+        "path": "c07",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "tessoku_book_ff",
