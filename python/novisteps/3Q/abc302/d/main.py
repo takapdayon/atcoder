@@ -1,4 +1,3 @@
-import queue
 import sys, re
 from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
 from copy import deepcopy
@@ -20,7 +19,6 @@ def s_input(): return input()
 def s_map(): return input().split()
 def s_list(): return list(s_map())
 def s_row(N): return [s_input() for _ in range(N)]
-
 def s_row_str(N): return [s_list() for _ in range(N)]
 def s_row_list(N): return [list(s_input()) for _ in range(N)]
 
@@ -32,29 +30,25 @@ num_list = []
 str_list = []
 
 def main():
-    N, A, B = map(int, input().split())
-    S = list(input())
-    queue = deque(S)
+    N, M, D = map(int, input().split())
+    AN = list(map(int, input().split()))
+    BM = list(map(int, input().split()))
 
-    min_cost = 10 ** 19
+    AN.sort()
+    BM.sort()
 
-    cost = 0
-    for i in range(N // 2):
-        if queue[i] == queue[-(i + 1)]:
-            continue
-        cost += 1
-    min_cost = min(min_cost, cost * B)
+    result = -1
+    for a in AN:
+        index = bisect_right(BM, a + D)
+        l_v = BM[index - 1] if index > 0 else 10 ** 19
+        if abs(l_v - a) <= D:
+            result = max(result, l_v + a)
 
-    for h in range(1, N + 1):
-        cost = 0
-        t = queue.popleft()
-        queue.append(t)
-        for i in range(N // 2):
-            if queue[i] == queue[-(i + 1)]:
-                continue
-            cost += 1
-        min_cost = min(min_cost, cost * B + h * A)
-    print(min_cost)
+        r_v = BM[index] if index < M else 10 ** 19
+        if abs(r_v - a) <= D:
+            result = max(result, r_v + a)
+
+    print(result)
 
 if __name__ == '__main__':
     main()

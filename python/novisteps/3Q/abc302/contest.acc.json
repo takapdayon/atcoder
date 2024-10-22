@@ -32,7 +32,12 @@
       "id": "abc302_d",
       "label": "D",
       "title": "Impartial Gift",
-      "url": "https://atcoder.jp/contests/abc302/tasks/abc302_d"
+      "url": "https://atcoder.jp/contests/abc302/tasks/abc302_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.py"
+      }
     },
     {
       "id": "abc302_e",

@@ -1,4 +1,3 @@
-import queue
 import sys, re
 from math import ceil, floor, sqrt, pi, gcd, lcm, factorial, atan, degrees
 from copy import deepcopy
@@ -20,7 +19,6 @@ def s_input(): return input()
 def s_map(): return input().split()
 def s_list(): return list(s_map())
 def s_row(N): return [s_input() for _ in range(N)]
-
 def s_row_str(N): return [s_list() for _ in range(N)]
 def s_row_list(N): return [list(s_input()) for _ in range(N)]
 
@@ -32,29 +30,27 @@ num_list = []
 str_list = []
 
 def main():
-    N, A, B = map(int, input().split())
-    S = list(input())
-    queue = deque(S)
+    N, M = map(int, input().split())
+    coverage = []
+    for _ in range(M):
+        _ = input()
+        tmp = list(map(int, input().split()))
+        coverage.append(tmp)
 
-    min_cost = 10 ** 19
+    result = 0
 
-    cost = 0
-    for i in range(N // 2):
-        if queue[i] == queue[-(i + 1)]:
-            continue
-        cost += 1
-    min_cost = min(min_cost, cost * B)
-
-    for h in range(1, N + 1):
-        cost = 0
-        t = queue.popleft()
-        queue.append(t)
-        for i in range(N // 2):
-            if queue[i] == queue[-(i + 1)]:
+    for cases in product([True, False], repeat=M):
+        comb = [False] * N
+        for i, case in enumerate(cases):
+            if not case:
                 continue
-            cost += 1
-        min_cost = min(min_cost, cost * B + h * A)
-    print(min_cost)
+            for n in coverage[i]:
+                comb[n - 1] = True
+
+        if all(comb):
+            result += 1
+
+    print(result)
 
 if __name__ == '__main__':
     main()
