@@ -1,7 +1,7 @@
 {
   "rust-analyzer.linkedProjects": [
     "rust\\src\\tessoku-book\\Cargo.toml",
-    "rust\\src\\novisteps\\3Q\\abc376\\Cargo.toml"
+    "rust\\src\\novisteps\\3Q\\abc374\\Cargo.toml"
   ],
-  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoImportCompletions": true
 }
