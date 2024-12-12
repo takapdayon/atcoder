@@ -6,7 +6,18 @@
     "rust\\src\\novisteps\\3Q\\abc369\\Cargo.toml",
     "rust\\src\\novisteps\\3Q\\abc365\\Cargo.toml",
     "rust\\src\\novisteps\\3Q\\abc363\\Cargo.toml",
-    "rust\\src\\abc\\abc381\\Cargo.toml"
+    "rust\\src\\novisteps\\3Q\\abc246\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc247\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc269\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc358\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc360\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc362\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc243\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc210\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc283\\Cargo.toml",
+    "rust\\src\\novisteps\\3Q\\abc275\\Cargo.toml",
+    "rust\\src\\abc\\abc381\\Cargo.toml",
+    "rust\\src\\abc\\abc382\\Cargo.toml"
   ],
   "python.analysis.autoImportCompletions": true
 }
