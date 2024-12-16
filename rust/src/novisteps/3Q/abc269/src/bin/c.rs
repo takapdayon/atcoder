@@ -4,18 +4,16 @@ fn main() {
     input! {
         N: usize
     }
-    // bit全探索
-    let b = format!("{:b}", N);
-    for flag in 0..1 << b.len() {
-        let mut result = vec![];
-        for i in 0..b.len() {
-            if flag & (1 << i) != 0 {
-                result.push('1')
-            } else {
-                result.push('0')
+    let mut results: Vec<usize> = vec![0];
+    for i in 0..60 {
+        if N & (1 << i) != 0 {
+            for r in 0..results.len() {
+                results.push(results[r] | (1 << i))
             }
         }
-        let to_string: String = result.into_iter().collect();
-        println!("{:?}", usize::from_str_radix(to_string.as_str(), 2));
+    }
+
+    for r in results {
+        println!("{}", r)
     }
 }
