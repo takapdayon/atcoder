@@ -1,5 +1,8 @@
 use proconio::input;
 
 fn main() {
-    todo!();
+    input! {
+        N: usize,
+    }
+    println!("{:010b}", N)
 }

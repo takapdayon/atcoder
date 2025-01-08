@@ -1,5 +1,8 @@
-use proconio::input;
+use proconio::{input, marker::Chars};
 
 fn main() {
-    todo!();
+    input! {
+        N: usize,
+        S: Chars,
+    }
 }
