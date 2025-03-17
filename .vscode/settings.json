@@ -37,6 +37,7 @@
     "rust\\src\\abc\\abc386\\Cargo.toml",
     "rust\\src\\abc\\abc391\\Cargo.toml",
     "rust\\src\\abc\\abc392\\Cargo.toml",
+    "rust\\src\\abc\\abc394\\Cargo.toml",
   ],
   "python.analysis.autoImportCompletions": true
 }
